@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>End the Killing of Christians in Nigeria</title>
   <meta name="description" content="A petition calling for protection, investigations, and humanitarian support for Christian communities affected by violence in Nigeria." />
+
   <!-- MONETAG PLACEHOLDER: paste your Monetag script below (or inside the .ad-slot div) -->
   <!-- Example: <script src="https://your-monetag-code.js"></script> -->
 
@@ -14,21 +15,27 @@
       --accent:#b71c1c;
       --bg:#fff;
       --muted:#555;
-      --container:1100px;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:#111;line-height:1.5}
-    .wrap{max-width:var(--container);margin:0 auto;padding:20px}
-    header{background:var(--urgent);color:#fff;padding:18px 20px;border-radius:6px}
-    header .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    header h1{margin:0;font-size:20px}
-    nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:16px;font-weight:700}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:#111;line-height:1.5}
+    header{position:relative;text-align:center;color:#fff}
+    header img{width:100%;height:300px;object-fit:cover;filter:brightness(60%)}
+    header .overlay{
+      position:absolute;top:0;left:0;width:100%;height:100%;
+      display:flex;flex-direction:column;justify-content:center;align-items:center;
+      text-shadow:0 2px 8px rgba(0,0,0,0.7);
+    }
+    header h1{font-size:2rem;margin-bottom:10px}
+    header p{max-width:600px;margin:0 auto;font-size:1.05rem}
+    nav{
+      background:var(--urgent);text-align:center;padding:10px 0;
+    }
+    nav a{
+      color:#fff;text-decoration:none;margin:0 12px;font-weight:bold;
+    }
     nav a:hover{text-decoration:underline}
-    .hero{display:flex;gap:24px;margin-top:20px;align-items:flex-start}
-    .left{flex:2}
-    .right{flex:1;min-width:260px}
-    .lede{font-size:1.05rem;color:var(--muted);margin-top:8px}
+    section{max-width:1000px;margin:20px auto;padding:0 20px}
     .petition{background:#fff;border:3px solid #fdecea;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(198,40,40,0.06)}
     .petition ul{margin:8px 0 0 18px}
     .support-area{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
@@ -36,172 +43,101 @@
     .btn-urgent{background:var(--urgent);color:#fff}
     .count{font-weight:800}
     .small{color:var(--muted);font-size:0.93rem}
-    .ad-slot{border:2px dashed #eee;padding:16px;text-align:center;border-radius:8px;margin-bottom:14px}
-    .factbox{background:#fff;padding:12px;border-radius:8px;border:1px solid #f3f3f3}
-    .background{margin-top:22px;background:#fff;padding:16px;border-radius:8px;border:1px solid #f3f3f3}
-    footer{background:#111;color:#fff;padding:18px;margin-top:24px;border-radius:6px}
-    .nav-anchor{cursor:pointer;color:inherit;text-decoration:none}
-    .share-links a{display:inline-block;margin-right:8px;padding:8px 10px;border-radius:6px;border:1px solid #eee;text-decoration:none;color:var(--urgent);font-weight:700}
-    /* responsive */
-    @media (max-width:900px){ .hero{flex-direction:column} header .top{flex-direction:column;align-items:flex-start} nav a{margin-left:0;margin-right:12px} }
-    /* smooth scroll target spacing */
-    section{scroll-margin-top:90px}
+    .ad-slot{border:2px dashed #eee;padding:16px;text-align:center;border-radius:8px;margin:14px 0}
+    footer{background:#111;color:#fff;text-align:center;padding:18px;margin-top:30px}
+    @media (max-width:700px){header img{height:220px}header h1{font-size:1.5rem}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="top">
-        <h1>End the Killing of Christians in Nigeria</h1>
-        <nav aria-label="Main navigation">
-          <a class="nav-anchor" href="#home">Home</a>
-          <a class="nav-anchor" href="#about">About</a>
-          <a class="nav-anchor" href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
 
-    <main>
-      <section id="home" class="hero" aria-labelledby="home-title">
-        <div class="left">
-          <h2 id="home-title">Protect lives — call for urgent action</h2>
-          <p class="lede">
-            Communities across Nigeria are experiencing deadly attacks that threaten innocent lives and religious freedom. This petition asks local authorities,
-            national leaders, and the international community to take immediate steps to protect civilians, investigate abuses, and provide humanitarian support.
-          </p>
+  <!-- HERO IMAGE BANNER -->
+  <header>
+    <!-- Replace banner.jpg with your own uploaded image filename -->
+    <img src="banner.jpg" alt="Banner image symbolizing peace and justice" />
+    <div class="overlay">
+      <h1>End the Killing of Christians in Nigeria</h1>
+      <p>Together, we can speak up and save lives through awareness, advocacy, and global action.</p>
+    </div>
+  </header>
 
-          <div class="petition" role="region" aria-label="petition">
-            <p class="small"><strong>We demand:</strong></p>
-            <ul>
-              <li>Transparent and independent investigations into attacks on communities.</li>
-              <li>Improved security measures and protection for vulnerable populations.</li>
-              <li>Immediate humanitarian assistance and resettlement support for displaced families.</li>
-              <li>International cooperation to prevent further violence and ensure accountability.</li>
-            </ul>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-            <div class="support-area" aria-live="polite">
-              <button id="supportBtn" class="btn btn-urgent">Click to Support</button>
-              <div class="count" aria-hidden="false"><span id="count">0</span> supporters</div>
-              <div style="flex-basis:100%"></div>
-              <p class="small">No personal data is collected by this site. Click to show your support. Share the petition to increase visibility.</p>
-            </div>
-          </div>
+  <!-- MAIN CONTENT -->
+  <main id="home">
+    <section>
+      <h2>Sign the Petition</h2>
+      <p>
+        We call on the international community to take immediate action to stop the ongoing persecution and killing of Christians in Nigeria. Every life matters.
+      </p>
 
-          <div style="margin-top:18px" class="share-links" aria-label="share">
-            <strong>Share:</strong>
-            <a id="shareWhats" target="_blank" rel="noopener">WhatsApp</a>
-            <a id="shareX" target="_blank" rel="noopener">X (Twitter)</a>
-            <a id="shareFB" target="_blank" rel="noopener">Facebook</a>
-          </div>
+      <div class="petition">
+        <ul>
+          <li>Independent investigation of all attacks.</li>
+          <li>Increased protection for vulnerable communities.</li>
+          <li>Emergency relief for displaced families.</li>
+          <li>Accountability for those responsible.</li>
+        </ul>
+
+        <div class="support-area">
+          <button id="supportBtn" class="btn btn-urgent">Click to Support</button>
+          <div class="count">Supporters: <span id="count">0</span></div>
         </div>
 
-        <aside class="right" aria-labelledby="aside-1">
-          <div id="adbox" class="ad-slot" role="complementary">
-            <p>Monetag ad slot — paste your Monetag script here.</p>
-            <!-- Monetag scripts can be pasted here -->
-          </div>
-
-          <div class="factbox" id="aside-1">
-            <h3 style="margin-top:0">What you can do now</h3>
-            <ol>
-              <li>Click to support this petition.</li>
-              <li>Share the link across social networks and WhatsApp groups.</li>
-              <li>Contact your representatives and local NGOs for action.</li>
-            </ol>
-          </div>
-        </aside>
-      </section>
-
-      <section id="about" class="background" aria-labelledby="about-title">
-        <h3 id="about-title">About this petition</h3>
-        <p>
-          This petition is an independent, peaceful call to protect civilian lives and ensure accountability. We aim to gather public support to pressure
-          authorities to act, and to amplify calls for humanitarian relief and safe resettlement for victims.
-        </p>
-        <p class="small">
-          <em>Note:</em> If you have verified reports or evidence to share, please use the Contact section below. We will not publish sensitive personal details without consent.
-        </p>
-      </section>
-
-      <section id="contact" class="background" aria-labelledby="contact-title" style="margin-bottom:30px">
-        <h3 id="contact-title">Contact & report credible information</h3>
-        <p>If you have credible information, eyewitness accounts, or links to verified news reports, please reach out. Replace the placeholder email below with your contact address.</p>
-
-        <p><strong>Email:</strong> <a id="contactEmail" href="mailto:youremail@example.com?subject=Information%20for%20petition">youremail@example.com</a></p>
-
-        <p class="small">If the information is sensitive, consider secure channels or trusted NGOs when sharing documentation.</p>
-      </section>
-    </main>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>© <span id="year"></span> End the Killing of Christians in Nigeria</div>
-        <div><a href="#contact" style="color:#fff;text-decoration:underline">Contact</a></div>
+        <p class="small">No personal data is collected. Click to show your support and share this message widely.</p>
       </div>
-    </footer>
-  </div>
+
+      <div class="ad-slot">
+        <p>Monetag ad space — paste your Monetag code here</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About This Petition</h2>
+      <p>
+        This petition aims to bring awareness to the violence and humanitarian crisis affecting Christian communities in Nigeria.
+        Our mission is to mobilize people around the world to call for protection, justice, and peace.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you have verified reports or want to collaborate, contact us at:</p>
+      <p><b>Email:</b> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> End the Killing of Christians in Nigeria
+  </footer>
 
   <script>
-    // --- Support counter (localStorage per browser) ---
-    (function () {
-      const KEY = 'petition_support_v1';
-      const SUPPORTED_KEY = 'petition_supported_by_this_browser_v1';
-      const countEl = document.getElementById('count');
-      const btn = document.getElementById('supportBtn');
-
-      function getCount(){
-        const raw = localStorage.getItem(KEY);
-        return raw ? parseInt(raw,10) : 0;
-      }
-      function setCount(n){
-        localStorage.setItem(KEY, String(n));
-        if(countEl) countEl.textContent = n;
-      }
-      function hasSupported(){ return localStorage.getItem(SUPPORTED_KEY) === '1'; }
-      function markSupported(){ localStorage.setItem(SUPPORTED_KEY, '1'); }
-
-      // init
-      setCount(getCount());
-      if(hasSupported()){
-        btn.textContent = 'You already support';
-        btn.disabled = true;
-        btn.style.opacity = 0.8;
-      }
-
-      btn.addEventListener('click', function(){
-        if(hasSupported()) return;
-        let c = getCount() + 1;
-        setCount(c);
-        markSupported();
-        btn.textContent = 'You already support';
-        btn.disabled = true;
-        btn.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.05)' }, { transform: 'scale(1)' }], { duration: 220 });
-      });
-    })();
-
-    // --- Share links ---
-    (function(){
-      const pageUrl = location.href;
-      const title = encodeURIComponent('End the Killing of Christians in Nigeria — please support this petition.');
-      document.getElementById('shareWhats').href = https://wa.me/?text=${title}%20${encodeURIComponent(pageUrl)};
-      document.getElementById('shareX').href = https://twitter.com/intent/tweet?text=${title}&url=${encodeURIComponent(pageUrl)};
-      document.getElementById('shareFB').href = https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)};
-    })();
-
-    // --- Smooth scroll for nav anchors ---
-    (function(){
-      document.querySelectorAll('.nav-anchor').forEach(a => {
-        a.addEventListener('click', function(e){
-          e.preventDefault();
-          const targetId = this.getAttribute('href').replace('#','');
-          const target = document.getElementById(targetId);
-          if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
-        });
-      });
-    })();
-
-    // footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Support counter using browser storage
+    let count = localStorage.getItem("petitionCount") || 0;
+    document.getElementById("count").textContent = count;
+    const btn = document.getElementById("supportBtn");
+    if(localStorage.getItem("supported") === "true"){
+      btn.textContent = "You already supported";
+      btn.disabled = true;
+      btn.style.opacity = 0.7;
+    }
+    btn.addEventListener("click", ()=>{
+      if(localStorage.getItem("supported") === "true") return;
+      count++;
+      localStorage.setItem("petitionCount", count);
+      localStorage.setItem("supported", "true");
+      document.getElementById("count").textContent = count;
+      btn.textContent = "You already supported";
+      btn.disabled = true;
+      btn.style.opacity = 0.7;
+      alert("Thank you for supporting!");
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
