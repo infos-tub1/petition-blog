@@ -5,58 +5,52 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>End the Killing of Christians in Nigeria</title>
 
-  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    body {font-family: Arial, sans-serif; margin: 0; background: #fff; color: #111; line-height: 1.6;}
-    header {position: relative; text-align: center; color: white;}
-    header a img {width: 100%; height: 300px; object-fit: cover; filter: brightness(60%);}
-    header .overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-shadow: 0 2px 8px rgba(0,0,0,0.7);}
-    header h1 {font-size: 2rem; margin-bottom: 10px;}
-    header p {max-width: 600px; margin: 0 auto; font-size: 1.1rem;}
-    nav {background: #c62828; text-align: center; padding: 10px 0;}
-    nav a {color: #fff; text-decoration: none; margin: 0 10px; font-weight: bold;}
-    nav a:hover {text-decoration: underline;}
-    section {max-width: 900px; margin: 20px auto; padding: 0 15px;}
-    .petition {background: #fff; border: 2px solid #eee; padding: 15px; border-radius: 8px;}
-    .btn {background: #c62828; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold;}
-    .count {font-weight: bold;}
-    footer {background: #111; color: #fff; text-align: center; padding: 15px; margin-top: 30px;}
-    img {max-width: 100%;}
+    body {font-family: Arial, sans-serif; margin:0; background:#fff; color:#111; line-height:1.6;}
 
-    /* Stylish share buttons */
-    .share-btn {
-      color: #fff;
-      padding: 10px 15px;
-      border-radius: 6px;
-      margin: 4px;
-      text-decoration: none;
-      display: inline-block;
-      font-weight: bold;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .share-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
+    header {position:relative; text-align:center; color:white;}
+    header a img {width:100%; height:300px; object-fit:cover; filter:brightness(60%);}
+    header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; pointer-events:none;}
 
-    .fb {background:#1877F2;}
-    .x {background:#000;}
-    .wa {background:#25D366;}
-    .rd {background:#FF4500;}
-    .ig {background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+    nav {background:#c62828; text-align:center; padding:10px 0;}
+    nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
+
+    section {max-width:900px; margin:20px auto; padding:0 15px;}
+
+    .support-area {background:#fff0f0; border:2px solid #f2f2f2; border-radius:10px; padding:15px; margin:12px 0; cursor:pointer; transition:.25s;}
+    .support-area:hover {transform:scale(1.02); box-shadow:0 4px 10px rgba(0,0,0,0.15);}
+    .support-label {font-weight:bold; color:#b71c1c;}
+    .support-count {color:#444;}
+
+    .total-banner {text-align:center; background:#b71c1c; color:white; padding:12px; border-radius:8px; font-size:1.2rem; margin:18px 0; font-weight:bold;}
+
+    .btn {background:#c62828; color:white; padding:12px 24px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; margin-top:15px;}
+
+    .ad-btn {display:inline-block; background:#b71c1c; color:white; padding:12px 24px; border-radius:8px; margin-top:18px; text-decoration:none;}
+
+    .share-btn {color:#fff; padding:10px 15px; border-radius:6px; margin:4px; display:inline-block; text-decoration:none; font-weight:bold;}
+    .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;}
+    .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+
+    #liveViewers{text-align:center; margin-bottom:12px; color:#444; font-size:0.95rem;}
+
+    .heart {position:fixed; font-size:22px; color:red; animation:floatUp 1s forwards;}
+    @keyframes floatUp {from{opacity:1;transform:translateY(0);} to{opacity:0;transform:translateY(-80px);}}
+
+    footer {background:#111; color:#fff; text-align:center; padding:15px; margin-top:40px;}
   </style>
 </head>
 <body>
 
 <header>
-  <a href="https://otieu.com/4/10137554" target="_blank">
-    <img src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG" alt="Banner image">
+  <a href="https://otieu.com/4/9876132" target="_blank">
+    <img src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG">
   </a>
   <div class="overlay">
     <h1>End the Killing of Christians in Nigeria</h1>
-    <p>Together we can stand for peace, justice, and the protection of every innocent life.</p>
+    <p>Together we can stand for peace, justice, and protection of innocent lives.</p>
   </div>
 </header>
 
@@ -66,123 +60,94 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<main id="home">
-  <section>
-    <h2>Sign the Petition</h2>
-    <p>
-      We call on the international community to take immediate action to stop the ongoing persecution and killing of Christians in Nigeria.
-    </p>
-    <div class="petition">
-      <ul>
-        <li>Independent investigation of all attacks.</li>
-        <li>Protection for vulnerable communities.</li>
-        <li>Relief for displaced families.</li>
-        <li>Justice for victims and accountability for offenders.</li>
-      </ul>
+<section id="home">
 
-      <p>
-        <button id="supportBtn" class="btn">Click to Support</button>
-        <span class="count">Supporters: <span id="count">0</span></span>
-      </p>
+  <div id="liveViewers">Loading viewers...</div>
 
-      <p style="font-size:0.9rem; color:#666;">No personal data is collected. Just click to show your support.</p>
-    </div>
-
-    <div style="text-align:center; margin:25px 0;">
-      <a href="https://otieu.com/4/10137554" target="_blank">
-        <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" 
-             alt="Petition related image" 
-             style="max-width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      </a>
-    </div>
-
-    <div style="margin-top:40px; text-align:center; border:2px solid #f2f2f2; 
-                border-radius:10px; padding:25px; background:#fff8f8; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-      <h3 style="color:#b71c1c; margin-bottom:8px;">Support Our Cause</h3>
-      <p style="color:#444; font-size:0.95rem; max-width:600px; margin:0 auto 15px;">
-        Your visit helps keep this campaign online. Every click supports awareness and helps us reach more people.
-      </p>
-      <a href="https://otieu.com/4/10137554" target="_blank"
-         style="display:inline-block; background:#b71c1c; color:#fff;
-                border:none; padding:12px 24px; border-radius:8px;
-                cursor:pointer; font-weight:bold; text-decoration:none;
-                box-shadow:0 3px 8px rgba(183,28,28,0.25); transition:background 0.3s ease;">
-        View Sponsored Message
-      </a>
-    </div>
-
-  </section>
-
-  <section id="about">
-    <h2>About This Petition</h2>
-    <p>
-      This petition raises awareness about the killings targeting Christians in Nigeria and calls for global intervention to ensure peace, safety, and justice for all.
-    </p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="goalgettersplaybook@gmail.com">goalgettersplaybook@gmail.com</a></p>
-  </section>
-
-  <div style="margin:30px auto; text-align:center;">
-    <h3>Share this Petition</h3>
-    <p>Help spread the word — share this petition with your friends and online communities:</p>
-
-    <a href="https://otieu.com/4/10137554" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://infos-tub1.github.io/petition-blog/', '_blank');" target="_blank" class="share-btn fb">
-      <i class="fab fa-facebook-f"></i> Share on Facebook
-    </a>
-
-    <a href="https://otieu.com/4/10137554" onclick="window.open('https://twitter.com/intent/tweet?text=Join%20me%20in%20supporting%20this%20petition%20to%20end%20the%20killing%20of%20Christians%20in%20Nigeria%20%23EndTheKilling&url=https://infos-tub1.github.io/petition-blog/', '_blank');" target="_blank" class="share-btn x">
-      <i class="fab fa-x-twitter"></i> Share on X
-    </a>
-
-    <a href="https://otieu.com/4/10137554" onclick="window.open('https://api.whatsapp.com/send?text=Join%20me%20in%20supporting%20this%20petition:%20https://infos-tub1.github.io/petition-blog/', '_blank');" target="_blank" class="share-btn wa">
-      <i class="fab fa-whatsapp"></i> Share on WhatsApp
-    </a>
-
-    <a href="https://otieu.com/4/10137554" onclick="window.open('https://www.reddit.com/submit?url=https://infos-tub1.github.io/petition-blog/&title=End%20the%20Killing%20of%20Christians%20in%20Nigeria', '_blank');" target="_blank" class="share-btn rd">
-      <i class="fab fa-reddit-alien"></i> Share on Reddit
-    </a>
-
-    <!-- Instagram Share Button -->
-    <a href="https://otieu.com/4/10137554" 
-       onclick="window.open('https://www.instagram.com/?url=https://infos-tub1.github.io/petition-blog/', '_blank');" 
-       target="_blank" 
-       class="share-btn ig">
-      <i class="fab fa-instagram"></i> Share on Instagram
-    </a>
-
+  <div class="support-area" data-key="peace">
+    <span class="support-label">Support Peace</span>
+    <span class="support-count">100 supporters</span>
   </div>
 
-</main>
+  <div class="support-area" data-key="justice">
+    <span class="support-label">Support Justice</span>
+    <span class="support-count">100 supporters</span>
+  </div>
+
+  <div class="support-area" data-key="freedom">
+    <span class="support-label">Support Freedom</span>
+    <span class="support-count">100 supporters</span>
+  </div>
+
+  <div id="totalBanner" class="total-banner">🔥 Total Supporters: 300+ 🔥</div>
+
+  <center><button id="confirmBtn" class="btn">Confirm Support</button></center>
+  <center><a href="https://otieu.com/4/9876132" target="_blank" class="ad-btn">View Sponsored Message</a></center>
+
+</section>
+
+<section id="about">
+  <h2>About This Petition</h2>
+  <p>This petition raises awareness about the killings targeting Christians in Nigeria and calls for global intervention and justice.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: goalgettersplaybook@gmail.com</p>
+</section>
+
+<section style="text-align:center;">
+  <h3>Share This Petition</h3>
+  <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn fb">Facebook</a>
+  <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn x">X</a>
+  <a href="#" onclick="window.open('https://api.whatsapp.com/send?text=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn wa">WhatsApp</a>
+  <a href="#" onclick="window.open('https://www.reddit.com/submit?url=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn rd">Reddit</a>
+  <a href="#" onclick="copyIG()" class="share-btn ig">Instagram</a>
+</section>
 
 <footer>
   © <span id="year"></span> End the Killing of Christians in Nigeria
 </footer>
 
 <script>
-  let count = localStorage.getItem("petitionCount") || 0;
-  document.getElementById("count").textContent = count;
-  const btn = document.getElementById("supportBtn");
-  if(localStorage.getItem("supported") === "true"){
-    btn.textContent = "You already supported";
-    btn.disabled = true;
-    btn.style.opacity = 0.6;
-  }
-  btn.addEventListener("click", ()=>{
-    if(localStorage.getItem("supported") === "true") return;
-    count++;
-    localStorage.setItem("petitionCount", count);
-    localStorage.setItem("supported", "true");
-    document.getElementById("count").textContent = count;
-    btn.textContent = "You already supported";
-    btn.disabled = true;
-    btn.style.opacity = 0.6;
-    window.open("https://otieu.com/4/10137554", "_blank");
-    alert("Thank you for supporting!");
+const areas=document.querySelectorAll('.support-area');
+areas.forEach(a=>{
+  let key=a.dataset.key;
+  let count=localStorage.getItem(key)?parseInt(localStorage.getItem(key)):100;
+  a.querySelector('.support-count').textContent=count+" supporters";
+  a.addEventListener('click',e=>{
+    count++; localStorage.setItem(key,count);
+    a.querySelector('.support-count').textContent=count+" supporters";
+    updateTotal(); spawnHeart(e);
   });
-  document.getElementById("year").textContent = new Date().getFullYear();
+});
+
+function updateTotal(){
+  let t=(parseInt(localStorage.getItem("peace")||100)+parseInt(localStorage.getItem("justice")||100)+parseInt(localStorage.getItem("freedom")||100));
+  document.getElementById("totalBanner").innerHTML="🔥 Total Supporters: "+t+" 🔥";
+}
+updateTotal();
+
+document.getElementById("confirmBtn").onclick=()=>window.open("https://otieu.com/4/9876132","_blank");
+
+function copyIG(){
+  navigator.clipboard.writeText("https://infos-tub1.github.io/petition-blog/");
+  alert("✅ Link copied! Paste it on your Instagram Story or Bio.");
+}
+
+function spawnHeart(e){
+  let h=document.createElement("div");
+  h.className="heart"; h.innerHTML="❤️";
+  h.style.left=e.clientX+"px"; h.style.top=e.clientY+"px";
+  document.body.appendChild(h); setTimeout(()=>h.remove(),900);
+}
+
+function viewCount(){
+  document.getElementById("liveViewers").innerHTML=(Math.floor(Math.random()*50)+15)+" people are viewing this petition now";
+}
+setInterval(viewCount,7000); viewCount();
+
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 
 </body>
