@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>End the Killing of Christians in Nigeria</title>
 
+  <!-- ✅ SEO Meta -->
+  <meta name="description" content="Support the call to end the persecution and killing of Christians in Nigeria. Every voice matters.">
+  <meta property="og:title" content="End the Killing of Christians in Nigeria">
+  <meta property="og:description" content="Stand with us. Raise awareness. Support peace and justice.">
+  <meta property="og:image" content="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG">
+  <meta property="og:url" content="https://infos-tub1.github.io/petition-blog/">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -18,15 +26,8 @@
     nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
 
     section {max-width:900px; margin:20px auto; padding:0 15px;}
-
-    .support-area {background:#fff0f0; border:2px solid #f2f2f2; border-radius:10px; padding:15px; margin:12px 0; cursor:pointer; transition:.25s;}
-    .support-area:hover {transform:scale(1.02); box-shadow:0 4px 10px rgba(0,0,0,0.15);}
-    .support-label {font-weight:bold; color:#b71c1c;}
-    .support-count {color:#444;}
-
-    .total-banner {text-align:center; background:#b71c1c; color:white; padding:12px; border-radius:8px; font-size:1.2rem; margin:18px 0; font-weight:bold;}
-
-    .btn {background:#c62828; color:white; padding:12px 24px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; margin-top:15px;}
+    .btn {background:#c62828; color:#fff; padding:12px 24px; border:none; border-radius:8px; cursor:pointer; font-weight:bold;}
+    .btn:disabled {opacity:.6; cursor:not-allowed;}
 
     .ad-btn {display:inline-block; background:#b71c1c; color:white; padding:12px 24px; border-radius:8px; margin-top:18px; text-decoration:none;}
 
@@ -34,12 +35,34 @@
     .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;}
     .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
 
-    #liveViewers{text-align:center; margin-bottom:12px; color:#444; font-size:0.95rem;}
+    #liveViewers {text-align:center; margin:12px 0; color:#444; font-size:0.95rem;}
 
-    .heart {position:fixed; font-size:22px; color:red; animation:floatUp 1s forwards;}
-    @keyframes floatUp {from{opacity:1;transform:translateY(0);} to{opacity:0;transform:translateY(-80px);}}
+    .heart {position:fixed; font-size:23px; color:red; animation:floatUp 1s ease-out forwards;}
+    @keyframes floatUp {from {opacity:1;} to {opacity:0; transform:translateY(-80px);} }
 
     footer {background:#111; color:#fff; text-align:center; padding:15px; margin-top:40px;}
+
+    /* ✅ Floating WhatsApp Button */
+    .floating-wa {
+      position: fixed; bottom: 20px; right: 20px;
+      background:#25D366; color:white;
+      padding:15px; border-radius:50%;
+      font-size:23px; text-align:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.3);
+      z-index:999; cursor:pointer;
+    }
+
+    /* ✅ Popup */
+    #popupBox {
+      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.6); backdrop-filter:blur(3px);
+      align-items:center; justify-content:center; z-index:9999;
+    }
+    #popupContent {
+      background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center;
+    }
+    #popupContent h3 {margin-bottom:10px; color:#b71c1c;}
+    #closePopup {margin-top:12px; cursor:pointer; color:#444; font-size:0.9rem;}
   </style>
 </head>
 <body>
@@ -50,7 +73,7 @@
   </a>
   <div class="overlay">
     <h1>End the Killing of Christians in Nigeria</h1>
-    <p>Together we can stand for peace, justice, and protection of innocent lives.</p>
+    <p>Stand for peace, justice, and protection of innocent lives.</p>
   </div>
 </header>
 
@@ -64,22 +87,21 @@
 
   <div id="liveViewers">Loading viewers...</div>
 
-  <div class="support-area" data-key="peace">
-    <span class="support-label">Support Peace</span>
-    <span class="support-count">100 supporters</span>
-  </div>
+  <h2>Show Your Support</h2>
 
-  <div class="support-area" data-key="justice">
-    <span class="support-label">Support Justice</span>
-    <span class="support-count">100 supporters</span>
-  </div>
+  <p>
+    <button id="supportBtn" class="btn">Click to Support</button>
+    <span class="count">Supporters: <span id="count"></span></span>
+  </p>
 
-  <div class="support-area" data-key="freedom">
-    <span class="support-label">Support Freedom</span>
-    <span class="support-count">100 supporters</span>
-  </div>
+  <p style="font-size:0.9rem; color:#666;">Your voice matters. One click = One supporter.</p>
 
-  <div id="totalBanner" class="total-banner">🔥 Total Supporters: 300+ 🔥</div>
+  <div style="text-align:center; margin:25px 0;">
+    <a href="https://otieu.com/4/9876132" target="_blank">
+      <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png"
+           style="max-width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+    </a>
+  </div>
 
   <center><button id="confirmBtn" class="btn">Confirm Support</button></center>
   <center><a href="https://otieu.com/4/9876132" target="_blank" class="ad-btn">View Sponsored Message</a></center>
@@ -88,7 +110,7 @@
 
 <section id="about">
   <h2>About This Petition</h2>
-  <p>This petition raises awareness about the killings targeting Christians in Nigeria and calls for global intervention and justice.</p>
+  <p>This petition seeks global attention and intervention to protect vulnerable Christian communities in Nigeria.</p>
 </section>
 
 <section id="contact">
@@ -98,54 +120,73 @@
 
 <section style="text-align:center;">
   <h3>Share This Petition</h3>
-  <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn fb">Facebook</a>
-  <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn x">X</a>
-  <a href="#" onclick="window.open('https://api.whatsapp.com/send?text=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn wa">WhatsApp</a>
-  <a href="#" onclick="window.open('https://www.reddit.com/submit?url=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn rd">Reddit</a>
-  <a href="#" onclick="copyIG()" class="share-btn ig">Instagram</a>
+  <a onclick="window.open('https://facebook.com/sharer/sharer.php?u=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn fb">Facebook</a>
+  <a onclick="window.open('https://twitter.com/intent/tweet?url=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn x">X</a>
+  <a onclick="window.open('https://api.whatsapp.com/send?text=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn wa">WhatsApp</a>
+  <a onclick="window.open('https://reddit.com/submit?url=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn rd">Reddit</a>
+  <a onclick="copyIG()" class="share-btn ig">Instagram</a>
 </section>
+
+<!-- ✅ Floating WhatsApp Share -->
+<a href="https://api.whatsapp.com/send?text=Support this petition: https://infos-tub1.github.io/petition-blog/" class="floating-wa">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ✅ Popup -->
+<div id="popupBox">
+  <div id="popupContent">
+    <h3>Before You Go</h3>
+    <p>Your support helps protect innocent lives.</p>
+    <button id="popupSupport" class="btn">Support Now</button>
+    <div id="closePopup">Maybe Later</div>
+  </div>
+</div>
 
 <footer>
   © <span id="year"></span> End the Killing of Christians in Nigeria
 </footer>
 
 <script>
-const areas=document.querySelectorAll('.support-area');
-areas.forEach(a=>{
-  let key=a.dataset.key;
-  let count=localStorage.getItem(key)?parseInt(localStorage.getItem(key)):100;
-  a.querySelector('.support-count').textContent=count+" supporters";
-  a.addEventListener('click',e=>{
-    count++; localStorage.setItem(key,count);
-    a.querySelector('.support-count').textContent=count+" supporters";
-    updateTotal(); spawnHeart(e);
-  });
-});
+let count = localStorage.getItem("supportCount") ? parseInt(localStorage.getItem("supportCount")) : 100;
+let supported = localStorage.getItem("alreadySupported") === "true";
 
-function updateTotal(){
-  let t=(parseInt(localStorage.getItem("peace")||100)+parseInt(localStorage.getItem("justice")||100)+parseInt(localStorage.getItem("freedom")||100));
-  document.getElementById("totalBanner").innerHTML="🔥 Total Supporters: "+t+" 🔥";
-}
-updateTotal();
+document.getElementById("count").textContent = count;
 
-document.getElementById("confirmBtn").onclick=()=>window.open("https://otieu.com/4/9876132","_blank");
+const btn = document.getElementById("supportBtn");
+if(supported){ btn.textContent="You already supported"; btn.disabled=true; }
 
-function copyIG(){
-  navigator.clipboard.writeText("https://infos-tub1.github.io/petition-blog/");
-  alert("✅ Link copied! Paste it on your Instagram Story or Bio.");
-}
+btn.onclick = (e)=>{
+  if(supported) return;
+  count++; localStorage.setItem("supportCount",count);
+  localStorage.setItem("alreadySupported","true");
+  document.getElementById("count").textContent=count;
+  btn.textContent="You already supported"; btn.disabled=true;
+  spawnHeart(e);
+};
+
+document.getElementById("confirmBtn").onclick = ()=>window.open("https://otieu.com/4/9876132","_blank");
 
 function spawnHeart(e){
   let h=document.createElement("div");
-  h.className="heart"; h.innerHTML="❤️";
+  h.className="heart"; h.textContent="❤️";
   h.style.left=e.clientX+"px"; h.style.top=e.clientY+"px";
   document.body.appendChild(h); setTimeout(()=>h.remove(),900);
 }
 
+function copyIG(){
+  navigator.clipboard.writeText("https://infos-tub1.github.io/petition-blog/");
+  alert("✅ Link copied! Paste it in Instagram Story or Bio.");
+}
+
 function viewCount(){
-  document.getElementById("liveViewers").innerHTML=(Math.floor(Math.random()*50)+15)+" people are viewing this petition now";
+  document.getElementById("liveViewers").textContent =
+    (Math.floor(Math.random()*60)+15)+" people are viewing this petition now";
 }
 setInterval(viewCount,7000); viewCount();
+
+setTimeout(()=>document.getElementById("popupBox").style.display="flex", 5000);
+document.getElementById("closePopup").onclick=()=>document.getElementById("popupBox").style.display="none";
+document.getElementById("popupSupport").onclick=()=>window.open("https://otieu.com/4/9876132","_blank");
 
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
