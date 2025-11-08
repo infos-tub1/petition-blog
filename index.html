@@ -25,8 +25,9 @@
 
   <style>
     :root{
-      --brand:#c62828; /* red */
-      --brand-dark:#b71c1c;
+      --brand:#1565c0; /* blue */
+      --brand-dark:#0d47a1;
+      --accent:#c62828; /* keep red buttons for consistency with prior CTA energy */
       --text:#111;
       --muted:#444;
       --bg:#fff;
@@ -35,11 +36,22 @@
     *{box-sizing:border-box}
     body {font-family: Arial, sans-serif; margin:0; background:var(--bg); color:var(--text); line-height:1.6;}
 
-    header {position:relative; text-align:center; color:white;}
-    header a img {width:100%; height:300px; object-fit:cover; filter:brightness(60%);}
-    header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-shadow:0 2px 8px rgba(0,0,0,0.8); pointer-events:none;}
-    header h1 {font-size:2rem; margin-bottom:6px;}
-    .emotional-line {margin-top:2px; font-size:1rem; font-weight:600; color:#ffecec;}
+    /* Top ad image stays clickable */
+    .hero {
+      position:relative; 
+      text-align:center;
+    }
+    .hero a img {width:100%; height:260px; object-fit:cover; filter:brightness(72%);}
+    /* White title band with thin blue border (A2) */
+    .titleband{
+      background:#fff;
+      padding:18px 12px 20px;
+      border-bottom:4px solid var(--brand);
+      text-align:center;
+    }
+    .titleband h1{margin:0 0 6px; font-size:1.6rem; color:var(--brand-dark);}
+    .titleband p{margin:4px 0; color:#333}
+    .titleband .emotional-line{font-weight:600; color:#1a237e}
 
     nav {background:var(--brand); text-align:center; padding:10px 0;}
     nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
@@ -47,18 +59,18 @@
 
     section {max-width:900px; margin:20px auto; padding:0 15px;}
 
-    .petition {background:#fff; border:2px solid #eee; padding:16px; border-radius:10px;}
+    .petition {background:#fff; border:1px solid #e6eef8; padding:16px; border-radius:10px; margin-top:15px; box-shadow:0 1px 4px rgba(13,71,161,0.06);}
     .petition ul {margin-left:18px;}
 
-    .btn {background:var(--brand); color:#fff; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:bold;}
-    .btn.secondary {background:#444;}
+    .btn {background:var(--accent); color:#fff; border:none; padding:12px 20px; border-radius:8px; cursor:pointer; font-weight:bold;}
+    .btn.secondary {background:#455a64;}
     .btn:disabled {opacity:.6; cursor:not-allowed;}
 
     .share-btn {color:#fff; padding:10px 15px; border-radius:6px; display:inline-block; margin:4px; font-weight:bold; text-decoration:none}
     .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;}
     .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
 
-    footer {background:#111; color:#fff; text-align:center; padding:18px; margin-top:40px;}
+    footer {background:#0b1b3a; color:#fff; text-align:center; padding:18px; margin-top:40px;}
 
     #liveViewers {text-align:center; margin:18px 0; font-size:0.95rem; color:var(--muted);}
 
@@ -66,8 +78,8 @@
     #popupContent {background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center;}
     #closePopup {margin-top:12px; cursor:pointer; color:#666;}
 
-    /* Progress bar (red theme) */
-    #progressBarContainer{width:100%; background:#f3e6e6; border-radius:6px; overflow:hidden; height:12px; margin-top:6px;}
+    /* Progress bar */
+    #progressBarContainer{width:100%; background:#eef3fb; border-radius:6px; overflow:hidden; height:12px; margin-top:6px; border:1px solid #d7e3f5;}
     #progressBar{height:12px; width:0%; background:var(--brand);}
   </style>
 </head>
@@ -76,16 +88,19 @@
 <!-- Invisible Counter -->
 <script src="https://www.supercounters.com/fc.php?id=1724495&c=0"></script>
 
-<header>
+<!-- Clickable ad header image -->
+<div class="hero">
   <a href="https://otieu.com/4/9876132" target="_blank">
     <img src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG" alt="">
   </a>
-  <div class="overlay">
-    <h1>End the Killing of Christians in Nigeria</h1>
-    <p class="emotional-line">Every signature is a life we choose to protect.</p>
-    <p>Stand for peace, justice, and protection of innocent lives.</p>
-  </div>
-</header>
+</div>
+
+<!-- White title band (A2) -->
+<div class="titleband">
+  <h1>End the Killing of Christians in Nigeria</h1>
+  <p class="emotional-line">Every signature is a life we choose to protect.</p>
+  <p>Stand for peace, justice, and protection of innocent lives.</p>
+</div>
 
 <nav>
   <a href="#home">Home</a>
@@ -117,7 +132,7 @@
       <span style="font-weight:bold">Supporters: <span id="count"></span></span>
     </p>
 
-    <p id="progressText" style="margin-top:10px; font-weight:bold; color:#5c2a2a;"></p>
+    <p id="progressText" style="margin-top:10px; font-weight:bold; color:#2a3b5f;"></p>
     <div id="progressBarContainer">
       <div id="progressBar"></div>
     </div>
@@ -125,7 +140,7 @@
 
   <div style="text-align:center; margin:25px 0;">
     <a id="centerImg" href="#">
-      <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);" alt=""></a>
+      <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(13,71,161,0.15);" alt=""></a>
   </div>
 
   <center><button id="confirmBtn" class="btn">Confirm Support</button></center>
