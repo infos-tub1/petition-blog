@@ -164,8 +164,13 @@ document.getElementById("centerImg").onclick = ()=>window.open("https://otieu.co
 
 // Share Buttons (2-click earn method)
 function shareAndAd(url){
-  window.open("https://otieu.com/4/9876132","_blank");
-  setTimeout(()=>{ window.open(url,"_blank"); }, 900);
+  // Step 1: open ad
+  window.open("https://otieu.com/4/9876132", "_blank");
+
+  // Step 2: open share window AFTER small delay
+  setTimeout(function(){
+    window.open(url, "_blank");
+  }, 1200); // 1.2 seconds = realistic + works on all phones
 }
 
 // Instagram Share = Copy link message
@@ -191,5 +196,6 @@ document.getElementById("year").textContent=new Date().getFullYear();
 
 </body>
 </html>
+
 
 
