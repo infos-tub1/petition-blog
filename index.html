@@ -5,64 +5,35 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>End the Killing of Christians in Nigeria</title>
 
-  <!-- ✅ SEO Meta -->
   <meta name="description" content="Support the call to end the persecution and killing of Christians in Nigeria. Every voice matters.">
   <meta property="og:title" content="End the Killing of Christians in Nigeria">
   <meta property="og:description" content="Stand with us. Raise awareness. Support peace and justice.">
   <meta property="og:image" content="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG">
-  <meta property="og:url" content="https://infos-tub1.github.io/petition-blog/">
+  <meta property="og:url" content="https://petitionblog.online">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     body {font-family: Arial, sans-serif; margin:0; background:#fff; color:#111; line-height:1.6;}
-
     header {position:relative; text-align:center; color:white;}
     header a img {width:100%; height:300px; object-fit:cover; filter:brightness(60%);}
-    header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; pointer-events:none;}
+    header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-shadow:0px 2px 8px rgba(0,0,0,0.8); pointer-events:none;}
 
     nav {background:#c62828; text-align:center; padding:10px 0;}
-    nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
+    nav a {color:white; margin:0 10px; text-decoration:none; font-weight:bold;}
 
     section {max-width:900px; margin:20px auto; padding:0 15px;}
-    .btn {background:#c62828; color:#fff; padding:12px 24px; border:none; border-radius:8px; cursor:pointer; font-weight:bold;}
+
+    .petition {background:#fff; border:2px solid #eee; padding:15px; border-radius:8px; margin-top:15px;}
+    .petition ul {margin-left:18px;}
+
+    .btn {background:#c62828; color:white; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:bold;}
     .btn:disabled {opacity:.6; cursor:not-allowed;}
 
-    .ad-btn {display:inline-block; background:#b71c1c; color:white; padding:12px 24px; border-radius:8px; margin-top:18px; text-decoration:none;}
+    .ad-btn {display:inline-block; background:#b71c1c; color:white; padding:12px 24px; border-radius:8px; margin-top:20px; text-decoration:none;}
 
-    .share-btn {color:#fff; padding:10px 15px; border-radius:6px; margin:4px; display:inline-block; text-decoration:none; font-weight:bold;}
-    .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;}
-    .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
-
-    #liveViewers {text-align:center; margin:12px 0; color:#444; font-size:0.95rem;}
-
-    .heart {position:fixed; font-size:23px; color:red; animation:floatUp 1s ease-out forwards;}
-    @keyframes floatUp {from {opacity:1;} to {opacity:0; transform:translateY(-80px);} }
-
-    footer {background:#111; color:#fff; text-align:center; padding:15px; margin-top:40px;}
-
-    /* ✅ Floating WhatsApp Button */
-    .floating-wa {
-      position: fixed; bottom: 20px; right: 20px;
-      background:#25D366; color:white;
-      padding:15px; border-radius:50%;
-      font-size:23px; text-align:center;
-      box-shadow:0 4px 10px rgba(0,0,0,0.3);
-      z-index:999; cursor:pointer;
-    }
-
-    /* ✅ Popup */
-    #popupBox {
-      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-      background:rgba(0,0,0,0.6); backdrop-filter:blur(3px);
-      align-items:center; justify-content:center; z-index:9999;
-    }
-    #popupContent {
-      background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center;
-    }
-    #popupContent h3 {margin-bottom:10px; color:#b71c1c;}
-    #closePopup {margin-top:12px; cursor:pointer; color:#444; font-size:0.9rem;}
+    footer {background:#111; color:white; text-align:center; padding:18px; margin-top:40px;}
   </style>
 </head>
 <body>
@@ -85,21 +56,33 @@
 
 <section id="home">
 
-  <div id="liveViewers">Loading viewers...</div>
-
-  <h2>Show Your Support</h2>
+  <h2>Sign the Petition</h2>
 
   <p>
-    <button id="supportBtn" class="btn">Click to Support</button>
-    <span class="count">Supporters: <span id="count"></span></span>
+    We call on the international community to take immediate action to stop the ongoing persecution
+    and killing of Christians in Nigeria.
   </p>
 
-  <p style="font-size:0.9rem; color:#666;">Your voice matters. One click = One supporter.</p>
+  <div class="petition">
+    <ul>
+      <li>Independent investigation of all attacks.</li>
+      <li>Protection for vulnerable communities.</li>
+      <li>Relief for displaced families.</li>
+      <li>Justice for victims and accountability for offenders.</li>
+    </ul>
+
+    <p>
+      <button id="supportBtn" class="btn">Click to Support</button>
+      <span style="font-weight:bold">Supporters: <span id="count"></span></span>
+    </p>
+
+    <p style="font-size:0.9rem; color:#666;">No personal data is collected. Just click to show your support.</p>
+  </div>
 
   <div style="text-align:center; margin:25px 0;">
     <a href="https://otieu.com/4/9876132" target="_blank">
       <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png"
-           style="max-width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+           style="max-width:100%; border-radius:10px; box-shadow:0px 4px 10px rgba(0,0,0,0.1);">
     </a>
   </div>
 
@@ -118,30 +101,6 @@
   <p>Email: goalgettersplaybook@gmail.com</p>
 </section>
 
-<section style="text-align:center;">
-  <h3>Share This Petition</h3>
-  <a onclick="window.open('https://facebook.com/sharer/sharer.php?u=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn fb">Facebook</a>
-  <a onclick="window.open('https://twitter.com/intent/tweet?url=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn x">X</a>
-  <a onclick="window.open('https://api.whatsapp.com/send?text=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn wa">WhatsApp</a>
-  <a onclick="window.open('https://reddit.com/submit?url=https://infos-tub1.github.io/petition-blog/','_blank');" class="share-btn rd">Reddit</a>
-  <a onclick="copyIG()" class="share-btn ig">Instagram</a>
-</section>
-
-<!-- ✅ Floating WhatsApp Share -->
-<a href="https://api.whatsapp.com/send?text=Support this petition: https://infos-tub1.github.io/petition-blog/" class="floating-wa">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- ✅ Popup -->
-<div id="popupBox">
-  <div id="popupContent">
-    <h3>Before You Go</h3>
-    <p>Your support helps protect innocent lives.</p>
-    <button id="popupSupport" class="btn">Support Now</button>
-    <div id="closePopup">Maybe Later</div>
-  </div>
-</div>
-
 <footer>
   © <span id="year"></span> End the Killing of Christians in Nigeria
 </footer>
@@ -153,42 +112,30 @@ let supported = localStorage.getItem("alreadySupported") === "true";
 document.getElementById("count").textContent = count;
 
 const btn = document.getElementById("supportBtn");
-if(supported){ btn.textContent="You already supported"; btn.disabled=true; }
+
+if(supported){
+  btn.textContent = "You already supported";
+  btn.disabled = true;
+}
 
 btn.onclick = (e)=>{
   if(supported) return;
-  count++; localStorage.setItem("supportCount",count);
-  localStorage.setItem("alreadySupported","true");
-  document.getElementById("count").textContent=count;
-  btn.textContent="You already supported"; btn.disabled=true;
-  spawnHeart(e);
+  count++;
+  localStorage.setItem("supportCount", count);
+  localStorage.setItem("alreadySupported", "true");
+  document.getElementById("count").textContent = count;
+
+  btn.textContent = "You already supported";
+  btn.disabled = true;
+
+  window.open("https://otieu.com/4/9876132", "_blank");
 };
 
-document.getElementById("confirmBtn").onclick = ()=>window.open("https://otieu.com/4/9876132","_blank");
+document.getElementById("confirmBtn").onclick = ()=>{
+  window.open("https://otieu.com/4/9876132","_blank");
+};
 
-function spawnHeart(e){
-  let h=document.createElement("div");
-  h.className="heart"; h.textContent="❤️";
-  h.style.left=e.clientX+"px"; h.style.top=e.clientY+"px";
-  document.body.appendChild(h); setTimeout(()=>h.remove(),900);
-}
-
-function copyIG(){
-  navigator.clipboard.writeText("https://infos-tub1.github.io/petition-blog/");
-  alert("✅ Link copied! Paste it in Instagram Story or Bio.");
-}
-
-function viewCount(){
-  document.getElementById("liveViewers").textContent =
-    (Math.floor(Math.random()*60)+15)+" people are viewing this petition now";
-}
-setInterval(viewCount,7000); viewCount();
-
-setTimeout(()=>document.getElementById("popupBox").style.display="flex", 5000);
-document.getElementById("closePopup").onclick=()=>document.getElementById("popupBox").style.display="none";
-document.getElementById("popupSupport").onclick=()=>window.open("https://otieu.com/4/9876132","_blank");
-
-document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
