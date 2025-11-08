@@ -176,9 +176,11 @@ function shareAndAd(url){
 // Instagram Share = Copy link message
 function copyIG(){
   navigator.clipboard.writeText("https://petitionblog.online");
-  alert("✅ Link copied — paste it into your Instagram story or bio.");
+  window.open("https://otieu.com/4/9876132", "_blank");
+  setTimeout(() => {
+    alert("✅ Link Copied!\nOpen Instagram → Paste in Bio or Story to Share.");
+  }, 600);
 }
-
 // Live Viewer Simulation
 function updateLiveViewers(){
   let viewers = Math.floor(Math.random()*50)+30;
@@ -196,6 +198,7 @@ document.getElementById("year").textContent=new Date().getFullYear();
 
 </body>
 </html>
+
 
 
 
