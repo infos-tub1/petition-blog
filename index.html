@@ -27,7 +27,7 @@
     body {font-family: Arial, sans-serif; margin:0; background:#fff; color:#111; line-height:1.6;}
     header {position:relative; text-align:center; color:white;}
     header a img {width:100%; height:300px; object-fit:cover; filter:brightness(60%);}
-    header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-shadow:0 2px 8px rgba(0,0,0,0.8);pointer-events:none;/}
+    header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-shadow:0 2px 8px rgba(0,0,0,0.8);pointer-events:none;}
 
     nav {background:#c62828; text-align:center; padding:10px 0;}
     nav a {color:white; margin:0 10px; text-decoration:none; font-weight:bold;}
@@ -55,7 +55,7 @@
 </head>
 <body>
 
-<!-- Invisible Counter (Correct Position) -->
+<!-- Invisible Counter -->
 <script src="https://www.supercounters.com/fc.php?id=1724495&c=0"></script>
 
 <header>
@@ -98,8 +98,7 @@
 
   <div style="text-align:center; margin:25px 0;">
     <a id="centerImg" href="#">
-      <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png"
-           style="max-width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);"></a>
+      <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);"></a>
   </div>
 
   <center><button id="confirmBtn" class="btn">Confirm Support</button></center>
@@ -109,10 +108,15 @@
 <section style="text-align:center;">
   <h3>Share This Petition</h3>
 
-  <a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text=Support this petition: https://petitionblog.online')">WhatsApp</a>
-  <a class="share-btn fb" onclick="shareAndAd('https://facebook.com/sharer/sharer.php?u=https://petitionblog.online')">Facebook</a>
-  <a class="share-btn x" onclick="shareAndAd('https://twitter.com/intent/tweet?url=https://petitionblog.online')">X</a>
-  <a class="share-btn rd" onclick="shareAndAd('https://reddit.com/submit?url=https://petitionblog.online')">Reddit</a>
+  <!-- ✅ Updated share message -->
+  <a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online')">WhatsApp</a>
+
+  <a class="share-btn fb" onclick="shareAndAd('https://facebook.com/sharer/sharer.php?u=https://petitionblog.online&quote=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support.')">Facebook</a>
+
+  <a class="share-btn x" onclick="shareAndAd('https://twitter.com/intent/tweet?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online')">X</a>
+
+  <a class="share-btn rd" onclick="shareAndAd('https://reddit.com/submit?url=https://petitionblog.online&title=Stand with us in calling for an end to the killing of Christians in Nigeria.')">Reddit</a>
+
   <a class="share-btn ig" onclick="copyIG()">Instagram</a>
 
 </section>
@@ -131,7 +135,6 @@
   © <span id="year"></span> End the Killing of Christians in Nigeria
 </footer>
 
-<!-- Popup -->
 <div id="popupBox">
   <div id="popupContent">
     <h3>Before You Leave</h3>
@@ -142,7 +145,6 @@
 </div>
 
 <script>
-// Support Counter
 let count = localStorage.getItem("supportCount") ? parseInt(localStorage.getItem("supportCount")) : 100;
 let supported = localStorage.getItem("alreadySupported") === "true";
 document.getElementById("count").textContent = count;
@@ -162,31 +164,28 @@ supportBtn.onclick = ()=>{
 document.getElementById("confirmBtn").onclick = ()=>window.open("https://otieu.com/4/9876132","_blank");
 document.getElementById("centerImg").onclick = ()=>window.open("https://otieu.com/4/9876132","_blank");
 
-// ✅ FIXED — Share First → Ad Second
+// ✅ Share First → Ad Second (works everywhere)
 function shareAndAd(url){
-  window.open(url, "_blank"); // SHARE first ✅
+  window.open(url, "_blank");
   setTimeout(() => {
-    window.open("https://otieu.com/4/9876132", "_blank"); // AD second ✅
+    window.open("https://otieu.com/4/9876132", "_blank");
   }, 900);
 }
 
-// Instagram Share + Ad
 function copyIG(){
   navigator.clipboard.writeText("https://petitionblog.online");
-  alert("✅ Link Copied!\nOpen Instagram → Paste in Bio or Story to Share.");
+  alert("✅ Link copied.\nOpen Instagram and paste into your Story or Bio.");
   setTimeout(() => {
     window.open("https://otieu.com/4/9876132", "_blank");
   }, 600);
 }
 
-// Live Viewer Simulation
 function updateLiveViewers(){
   let viewers = Math.floor(Math.random()*50)+30;
   document.getElementById("liveViewers").textContent = viewers + " people are viewing this petition now";
 }
 setInterval(updateLiveViewers, 6000); updateLiveViewers();
 
-// Popup
 setTimeout(()=>document.getElementById("popupBox").style.display="flex",14000);
 document.getElementById("popupSupport").onclick=()=>window.open("https://otieu.com/4/9876132","_blank");
 document.getElementById("closePopup").onclick=()=>document.getElementById("popupBox").style.display="none";
