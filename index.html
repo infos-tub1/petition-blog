@@ -99,6 +99,11 @@
       <br><br>
       <span style="font-weight:bold">Supporters: <span id="count"></span></span>
     </p>
+    <p id="progressText" style="margin-top:10px; font-weight:bold; color:#444;"></p>
+<div id="progressBarContainer" style="width:100%; background:#eee; border-radius:6px; overflow:hidden; height:12px; margin-top:6px;">
+  <div id="progressBar" style="height:12px; width:0%; background:#c62828;"></div>
+</div>
+
   </div>
 
   <div style="text-align:center; margin:25px 0;">
@@ -150,22 +155,16 @@
 
 <script>
 let count = localStorage.getItem("supportCount") ? parseInt(localStorage.getItem("supportCount")) : 100;
-let supported = localStorage.getItem("alreadySupported") === "true";
-document.getElementById("count").textContent = count;
+let goal = 10000;
 
-const supportBtn = document.getElementById("supportBtn");
-if(supported){ supportBtn.textContent="You already supported"; supportBtn.disabled=true; }
+function updateProgress() {
+  document.getElementById("count").textContent = count;
+  document.getElementById("progressText").textContent = count.toLocaleString() + " people have signed — Goal: " + goal.toLocaleString();
+  let percent = Math.min((count / goal) * 100, 100);
+  document.getElementById("progressBar").style.width = percent + "%";
+}
+updateProgress();
 
-supportBtn.onclick = ()=>{
-  if(supported) return;
-  count++; localStorage.setItem("supportCount", count);
-  localStorage.setItem("alreadySupported","true");
-  document.getElementById("count").textContent=count;
-  supportBtn.textContent="You already supported"; supportBtn.disabled=true;
-  window.open("https://otieu.com/4/9876132","_blank");
-};
-
-document.getElementById("shareSupportBtn").onclick = ()=>{
   shareAndAd("https://api.whatsapp.com/send?text=💔 Please take a moment to support this petition.\nInnocent Christian families in Nigeria are suffering.\nYour voice can help protect them.\n\nSign & share: https://petitionblog.online");
 };
 
@@ -202,3 +201,4 @@ document.getElementById("year").textContent=new Date().getFullYear();
 
 </body>
 </html>
+
