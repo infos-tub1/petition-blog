@@ -162,25 +162,23 @@ supportBtn.onclick = ()=>{
 document.getElementById("confirmBtn").onclick = ()=>window.open("https://otieu.com/4/9876132","_blank");
 document.getElementById("centerImg").onclick = ()=>window.open("https://otieu.com/4/9876132","_blank");
 
-// Share Buttons (2-click earn method)
+// ✅ FIXED — Share First → Ad Second
 function shareAndAd(url){
-  // Step 1: open ad
-  window.open("https://otieu.com/4/9876132", "_blank");
-
-  // Step 2: open share window AFTER small delay
-  setTimeout(function(){
-    window.open(url, "_blank");
-  }, 1200); // 1.2 seconds = realistic + works on all phones
+  window.open(url, "_blank"); // SHARE first ✅
+  setTimeout(() => {
+    window.open("https://otieu.com/4/9876132", "_blank"); // AD second ✅
+  }, 900);
 }
 
-// Instagram Share = Copy link message
+// Instagram Share + Ad
 function copyIG(){
   navigator.clipboard.writeText("https://petitionblog.online");
-  window.open("https://otieu.com/4/9876132", "_blank");
+  alert("✅ Link Copied!\nOpen Instagram → Paste in Bio or Story to Share.");
   setTimeout(() => {
-    alert("✅ Link Copied!\nOpen Instagram → Paste in Bio or Story to Share.");
+    window.open("https://otieu.com/4/9876132", "_blank");
   }, 600);
 }
+
 // Live Viewer Simulation
 function updateLiveViewers(){
   let viewers = Math.floor(Math.random()*50)+30;
@@ -198,7 +196,3 @@ document.getElementById("year").textContent=new Date().getFullYear();
 
 </body>
 </html>
-
-
-
-
