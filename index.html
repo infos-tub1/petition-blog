@@ -25,7 +25,7 @@
 
   <style>
     :root{
-      --brand:#c62828; /* red */
+      --brand:#c62828;
       --brand-dark:#b71c1c;
       --text:#111;
       --muted:#444;
@@ -38,12 +38,10 @@
     header {position:relative; text-align:center; color:white;}
     header a img {width:100%; height:300px; object-fit:cover; filter:brightness(60%);}
     header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-shadow:0 2px 8px rgba(0,0,0,0.8); pointer-events:none;}
-    header h1 {font-size:2rem; margin-bottom:6px;}
-    .emotional-line {margin-top:2px; font-size:1rem; font-weight:600; color:#ffecec;}
+    .emotional-line {font-weight:600; color:#ffecec;}
 
     nav {background:var(--brand); text-align:center; padding:10px 0;}
     nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
-    nav a:hover{text-decoration:underline}
 
     section {max-width:900px; margin:20px auto; padding:0 15px;}
 
@@ -54,38 +52,19 @@
     .btn.secondary {background:#444;}
     .btn:disabled {opacity:.6; cursor:not-allowed;}
 
-    .share-btn {color:#fff; padding:10px 15px; border-radius:6px; display:inline-block; margin:4px; font-weight:bold; text-decoration:none}
-    .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;}
-    .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+    .share-btn {color:#fff; padding:10px 15px; border-radius:6px; display:inline-block; margin:4px; font-weight:bold; text-decoration:none;}
+    .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;} .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
 
-    footer {background:#111; color:#fff; text-align:center; padding:18px; margin-top:40px;}
+    #liveViewers {text-align:center; margin:18px 0; font-size:0.95rem; color:#555;}
 
-    #liveViewers {text-align:center; margin:18px 0; font-size:0.95rem; color:var(--muted);}
-
-    #popupBox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); justify-content:center; align-items:center; z-index:9999;}
-    #popupContent {background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center;}
-    #closePopup {margin-top:12px; cursor:pointer; color:#666;}
-
-    /* Progress bar (red theme) */
-    #progressBarContainer{width:100%; background:#f3e6e6; border-radius:6px; overflow:hidden; height:12px; margin-top:6px;}
+    #progressBarContainer{width:100%; background:#f3e6e6; border-radius:6px; overflow:hidden; height:12px;}
     #progressBar{height:12px; width:0%; background:var(--brand);}
+
+    /* Confirm & Share Popup */
+    #sharePopup {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); justify-content:center; align-items:center; z-index:99999;}
+    #sharePopupContent {background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center; box-shadow:0 4px 14px rgba(0,0,0,0.3);}
   </style>
 </head>
-  <!-- Confirm & Share Progress Popup -->
-<div id="sharePopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); display:flex; justify-content:center; align-items:center; z-index:99999;">
-  <div style="background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
-    <h3 style="margin-bottom:8px;">Confirming Support...</h3>
-    <p id="shareProgressText" style="font-weight:bold; color:#444;">Progress: 0%</p>
-
-    <div style="width:100%; background:#eee; border-radius:6px; overflow:hidden; height:12px; margin-top:6px;">
-      <div id="shareProgressBar" style="height:12px; width:0%; background:#c62828;"></div>
-    </div>
-
-    <p id="shareStepsText" style="margin-top:10px; color:#666; font-size:0.9rem;">Share to 6 groups to complete</p>
-    <button onclick="closeSharePopup()" style="margin-top:10px; background:#444; color:#fff; border:none; padding:8px 18px; border-radius:6px; cursor:pointer;">Cancel</button>
-  </div>
-</div>
-
 <body>
 
 <!-- Invisible Counter -->
@@ -93,12 +72,11 @@
 
 <header>
   <a href="https://otieu.com/4/9876132" target="_blank">
-    <img src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG" alt="">
+    <img src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG">
   </a>
   <div class="overlay">
     <h1>End the Killing of Christians in Nigeria</h1>
     <p class="emotional-line">Every signature is a life we choose to protect.</p>
-    <p>Stand for peace, justice, and protection of innocent lives.</p>
   </div>
 </header>
 
@@ -114,8 +92,6 @@
 
   <h2>Sign the Petition</h2>
 
-  <p>We call on the international community to take immediate action to stop the ongoing persecution and killing of Christians in Nigeria.</p>
-
   <div class="petition">
     <ul>
       <li>Independent investigation of all attacks.</li>
@@ -125,63 +101,42 @@
     </ul>
 
     <p>
-      <button id="supportBtn" class="btn">Click to Support</button>
-      <br><br>
-      <button id="shareSupportBtn" class="btn" style="background:#444;">Confirm Support & Share</button>
-      <br><br>
-      <span style="font-weight:bold">Supporters: <span id="count"></span></span>
+      <button id="supportBtn" class="btn">Click to Support</button><br><br>
+      <button id="shareSupportBtn" class="btn secondary">Confirm Support & Share</button><br><br>
+      <strong>Supporters: <span id="count"></span></strong>
     </p>
 
-    <p id="progressText" style="margin-top:10px; font-weight:bold; color:#5c2a2a;"></p>
+    <p id="progressText" style="margin-top:10px; font-weight:bold;"></p>
     <div id="progressBarContainer">
       <div id="progressBar"></div>
     </div>
   </div>
 
-  <div style="text-align:center; margin:25px 0;">
-    <a id="centerImg" href="#">
-      <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);" alt=""></a>
-  </div>
-
-  <center><button id="confirmBtn" class="btn">Confirm Support</button></center>
-
 </section>
 
 <section style="text-align:center;">
   <h3>Share This Petition</h3>
-
-  <a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online')">WhatsApp</a>
-
-  <a class="share-btn fb" onclick="shareAndAd('https://facebook.com/sharer/sharer.php?u=https://petitionblog.online&quote=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support.')">Facebook</a>
-
-  <a class="share-btn x" onclick="shareAndAd('https://twitter.com/intent/tweet?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online')">X</a>
-
-  <a class="share-btn rd" onclick="shareAndAd('https://reddit.com/submit?url=https://petitionblog.online&title=Stand with us in calling for an end to the killing of Christians in Nigeria.')">Reddit</a>
-
+  <a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text=Join us — https://petitionblog.online')">WhatsApp</a>
+  <a class="share-btn fb" onclick="shareAndAd('https://facebook.com/sharer/sharer.php?u=https://petitionblog.online')">Facebook</a>
+  <a class="share-btn x" onclick="shareAndAd('https://twitter.com/intent/tweet?text=Support peace — https://petitionblog.online')">X</a>
+  <a class="share-btn rd" onclick="shareAndAd('https://reddit.com/submit?url=https://petitionblog.online')">Reddit</a>
   <a class="share-btn ig" onclick="copyIG()">Instagram</a>
-
-</section>
-
-<section id="about">
-  <h2>About This Petition</h2>
-  <p>This petition seeks global attention and intervention to protect vulnerable Christian communities in Nigeria.</p>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: goalgettersplaybook@gmail.com</p>
 </section>
 
 <footer>
   © <span id="year"></span> End the Killing of Christians in Nigeria
 </footer>
 
-<div id="popupBox">
-  <div id="popupContent">
-    <h3>Before You Leave</h3>
-    <p>Your support helps protect innocent lives.</p>
-    <button id="popupSupport" class="btn">Support Now</button>
-    <div id="closePopup">Maybe Later</div>
+<!-- SHARE PROGRESS POPUP -->
+<div id="sharePopup">
+  <div id="sharePopupContent">
+    <h3>Confirming Support...</h3>
+    <p id="shareProgressText">Progress: 0%</p>
+    <div style="width:100%; background:#eee; border-radius:6px; overflow:hidden; height:12px;">
+      <div id="shareProgressBar" style="height:12px; width:0%; background:#c62828;"></div>
+    </div>
+    <p id="shareStepsText" style="margin-top:10px;">Share to 10 more groups to complete</p>
+    <button onclick="closeSharePopup()" style="margin-top:10px; background:#444; color:#fff; padding:8px 18px; border-radius:6px;">Cancel</button>
   </div>
 </div>
 
@@ -190,118 +145,72 @@ let count = localStorage.getItem("supportCount") ? parseInt(localStorage.getItem
 let goal = 5000;
 let supported = localStorage.getItem("alreadySupported") === "true";
 
-function updateProgress() {
+function updateProgress(){
   document.getElementById("count").textContent = count;
-  document.getElementById("progressText").textContent = count.toLocaleString() + " people have signed — Goal: " + goal.toLocaleString();
-  let percent = Math.min((count / goal) * 3000, 3000);
+  document.getElementById("progressText").textContent = count.toLocaleString()+" people have signed — Goal: "+goal.toLocaleString();
+  let percent = Math.min((count / goal) * 100, 100);
   document.getElementById("progressBar").style.width = percent + "%";
 }
 updateProgress();
 
 const supportBtn = document.getElementById("supportBtn");
-if(supported){ supportBtn.textContent="You already supported"; supportBtn.disabled=true; }
+if(supported){ supportBtn.textContent = "You already supported"; supportBtn.disabled = true; }
 
 supportBtn.onclick = ()=>{
   if(supported) return;
-  count++;
-  localStorage.setItem("supportCount", count);
-  localStorage.setItem("alreadySupported","true");
-  updateProgress();
-  supportBtn.textContent="You already supported";
-  supportBtn.disabled=true;
+  count++; localStorage.setItem("supportCount", count); localStorage.setItem("alreadySupported","true");
+  supported = true; updateProgress();
+  supportBtn.textContent="You already supported"; supportBtn.disabled=true;
   window.open("https://otieu.com/4/9876132","_blank");
 };
 
+let shareProgress = 0;
+let sharesNeeded = 10;
+
 document.getElementById("shareSupportBtn").onclick = ()=>{
+  document.getElementById("sharePopup").style.display="flex";
+  shareProgress = 0;
+  updateShareProgress();
   if(!supported){
-    count++;
-    localStorage.setItem("supportCount", count);
-    localStorage.setItem("alreadySupported","true");
-    supportBtn.textContent="You already supported";
-    supportBtn.disabled=true;
-    supported = true;
-    updateProgress();
+    count++; localStorage.setItem("supportCount", count); localStorage.setItem("alreadySupported","true");
+    supported = true; updateProgress();
   }
-  shareAndAd('https://api.whatsapp.com/send?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online');
 };
 
-document.getElementById("confirmBtn").onclick = ()=>window.open("https://otieu.com/4/9876132","_blank");
-document.getElementById("centerImg").onclick = ()=>window.open("https://otieu.com/4/9876132","_blank");
+function updateShareProgress(){
+  let percent = Math.round((shareProgress / sharesNeeded) * 100);
+  document.getElementById("shareProgressText").textContent = "Progress: "+percent+"%";
+  document.getElementById("shareProgressBar").style.width = percent+"%";
+  document.getElementById("shareStepsText").textContent = "Share to "+(sharesNeeded - shareProgress)+" more groups to complete";
+}
 
 function shareAndAd(url){
-  window.open(url, "_blank");           // SHARE first
-  setTimeout(() => {
-    window.open("https://otieu.com/4/9876132", "_blank"); // AD after
-  }, 900);
+  window.open(url, "_blank");
+  shareProgress++;
+  updateShareProgress();
+  if(shareProgress >= sharesNeeded){
+    document.getElementById("sharePopup").style.display="none";
+    window.open("https://otieu.com/4/9876132","_blank");
+  }
 }
 
 function copyIG(){
   navigator.clipboard.writeText("https://petitionblog.online");
-  alert("✅ Link copied.\nOpen Instagram and paste into your Story or Bio.");
-  setTimeout(() => {
-    window.open("https://otieu.com/4/9876132", "_blank");
-  }, 600);
+  alert("✅ Link Copied!");
+}
+
+function closeSharePopup(){
+  document.getElementById("sharePopup").style.display="none";
 }
 
 function updateLiveViewers(){
-  let viewers = Math.floor(Math.random()*50)+30;
-  document.getElementById("liveViewers").textContent = viewers + " people are viewing this petition now";
+  document.getElementById("liveViewers").textContent =
+    (Math.floor(Math.random()*50)+30)+" people are viewing this petition now";
 }
-setInterval(updateLiveViewers, 6000); updateLiveViewers();
+setInterval(updateLiveViewers,6000); updateLiveViewers();
 
-setTimeout(()=>document.getElementById("popupBox").style.display="flex",14000);
-document.getElementById("popupSupport").onclick=()=>window.open("https://otieu.com/4/9876132","_blank");
-document.getElementById("closePopup").onclick=()=>document.getElementById("popupBox").style.display="none";
-
-document.getElementById("year").textContent=new Date().getFullYear();
-  let shareProgress = 0;
-let sharesNeeded = 6;
-
-document.getElementById("shareSupportBtn").onclick = () => {
-  shareProgress = 0;
-  updateShareProgress();
-  document.getElementById("sharePopup").style.display = "flex";
-};
-
-// Update bar + text
-function updateShareProgress(){
-  let percent = Math.round((shareProgress / sharesNeeded) * 100);
-  document.getElementById("shareProgressText").textContent = "Progress: " + percent + "%";
-  document.getElementById("shareStepsText").textContent = "Share to " + (sharesNeeded - shareProgress) + " more groups to complete";
-  document.getElementById("shareProgressBar").style.width = percent + "%";
-}
-
-// When user shares (same shareAndAd function, replace it entirely)
-function shareAndAd(url){
-  // Step 1: open share window
-  window.open(url, "_blank");
-
-  // Step 2: increase share progress
-  shareProgress++;
-  updateShareProgress();
-
-  // Step 3: When completed
-  if(shareProgress >= sharesNeeded){
-    count++;
-    localStorage.setItem("supportCount", count);
-    localStorage.setItem("alreadySupported","true");
-    updateProgress();
-    document.getElementById("sharePopup").style.display = "none";
-    // Open ads
-    window.open("https://otieu.com/4/9876132", "_blank");
-  }
-}
-
-// Close popup
-function closeSharePopup(){
-  document.getElementById("sharePopup").style.display = "none";
-}
-
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
 </html>
-
-
-
-
