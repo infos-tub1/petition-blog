@@ -171,8 +171,8 @@
 </div>
 
 <script>
-let count = localStorage.getItem("supportCount") ? parseInt(localStorage.getItem("supportCount")) : 100;
-let goal = 10000;
+let count = localStorage.getItem("supportCount") ? parseInt(localStorage.getItem("supportCount")) : 3000;
+let goal = 5000;
 let supported = localStorage.getItem("alreadySupported") === "true";
 
 function updateProgress() {
@@ -243,3 +243,4 @@ document.getElementById("year").textContent=new Date().getFullYear();
 
 </body>
 </html>
+
