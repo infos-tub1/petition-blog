@@ -168,9 +168,14 @@ let shareProgress = 0;
 let sharesNeeded = 10;
 
 document.getElementById("shareSupportBtn").onclick = ()=>{
-  document.getElementById("sharePopup").style.display="flex";
   shareProgress = 0;
   updateShareProgress();
+  document.getElementById("sharePopup").style.display = "flex";
+
+  // Immediately trigger first share (WhatsApp)
+  shareAndAd("https://api.whatsapp.com/send?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online");
+};
+
   if(!supported){
     count++; localStorage.setItem("supportCount", count); localStorage.setItem("alreadySupported","true");
     supported = true; updateProgress();
@@ -214,3 +219,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+
