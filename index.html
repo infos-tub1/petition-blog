@@ -170,11 +170,16 @@ let sharesNeeded = 10;
 document.getElementById("shareSupportBtn").onclick = ()=>{
   shareProgress = 0;
   updateShareProgress();
-  document.getElementById("sharePopup").style.display = "flex";
 
-  // Immediately trigger first share (WhatsApp)
-  shareAndAd("https://api.whatsapp.com/send?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online");
+  // Open WhatsApp IMMEDIATELY (browser approved action)
+  window.location.href = "https://api.whatsapp.com/send?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online";
+
+  // Show progress popup AFTER WhatsApp opens
+  setTimeout(()=>{
+    document.getElementById("sharePopup").style.display = "flex";
+  }, 800);
 };
+
 
   if(!supported){
     count++; localStorage.setItem("supportCount", count); localStorage.setItem("alreadySupported","true");
@@ -219,4 +224,5 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+
 
