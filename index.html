@@ -71,6 +71,21 @@
     #progressBar{height:12px; width:0%; background:var(--brand);}
   </style>
 </head>
+  <!-- Confirm & Share Progress Popup -->
+<div id="sharePopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); display:flex; justify-content:center; align-items:center; z-index:99999;">
+  <div style="background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+    <h3 style="margin-bottom:8px;">Confirming Support...</h3>
+    <p id="shareProgressText" style="font-weight:bold; color:#444;">Progress: 0%</p>
+
+    <div style="width:100%; background:#eee; border-radius:6px; overflow:hidden; height:12px; margin-top:6px;">
+      <div id="shareProgressBar" style="height:12px; width:0%; background:#c62828;"></div>
+    </div>
+
+    <p id="shareStepsText" style="margin-top:10px; color:#666; font-size:0.9rem;">Share to 6 groups to complete</p>
+    <button onclick="closeSharePopup()" style="margin-top:10px; background:#444; color:#fff; border:none; padding:8px 18px; border-radius:6px; cursor:pointer;">Cancel</button>
+  </div>
+</div>
+
 <body>
 
 <!-- Invisible Counter -->
@@ -112,7 +127,7 @@
     <p>
       <button id="supportBtn" class="btn">Click to Support</button>
       <br><br>
-      <button id="shareSupportBtn" class="btn secondary">Confirm Support & Share</button>
+      <button id="shareSupportBtn" class="btn" style="background:#444;">Confirm Support & Share</button>
       <br><br>
       <span style="font-weight:bold">Supporters: <span id="count"></span></span>
     </p>
@@ -243,5 +258,6 @@ document.getElementById("year").textContent=new Date().getFullYear();
 
 </body>
 </html>
+
 
 
