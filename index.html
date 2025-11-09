@@ -38,10 +38,12 @@
     header {position:relative; text-align:center; color:white;}
     header a img {width:100%; height:300px; object-fit:cover; filter:brightness(60%);}
     header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-shadow:0 2px 8px rgba(0,0,0,0.8); pointer-events:none;}
-    .emotional-line {font-weight:600; color:#ffecec;}
+    header h1 {font-size:2rem; margin-bottom:6px;}
+    .emotional-line {margin-top:2px; font-size:1rem; font-weight:600; color:#ffecec;}
 
     nav {background:var(--brand); text-align:center; padding:10px 0;}
     nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
+    nav a:hover{text-decoration:underline}
 
     section {max-width:900px; margin:20px auto; padding:0 15px;}
 
@@ -52,17 +54,25 @@
     .btn.secondary {background:#444;}
     .btn:disabled {opacity:.6; cursor:not-allowed;}
 
-    .share-btn {color:#fff; padding:10px 15px; border-radius:6px; display:inline-block; margin:4px; font-weight:bold; text-decoration:none;}
-    .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;} .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+    .share-btn {color:#fff; padding:10px 15px; border-radius:6px; display:inline-block; margin:4px; font-weight:bold; text-decoration:none}
+    .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;}
+    .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
 
-    #liveViewers {text-align:center; margin:18px 0; font-size:0.95rem; color:#555;}
+    footer {background:#111; color:#fff; text-align:center; padding:18px; margin-top:40px;}
 
-    #progressBarContainer{width:100%; background:#f3e6e6; border-radius:6px; overflow:hidden; height:12px;}
+    #liveViewers {text-align:center; margin:18px 0; font-size:0.95rem; color:var(--muted);}
+
+    #popupBox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); justify-content:center; align-items:center; z-index:9999;}
+    #popupContent {background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center;}
+    #closePopup {margin-top:12px; cursor:pointer; color:#666;}
+
+    /* Progress bar (red theme) */
+    #progressBarContainer{width:100%; background:#f3e6e6; border-radius:6px; overflow:hidden; height:12px; margin-top:6px;}
     #progressBar{height:12px; width:0%; background:var(--brand);}
 
-    /* Confirm & Share Popup */
-    #sharePopup {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); justify-content:center; align-items:center; z-index:99999;}
-    #sharePopupContent {background:#fff; padding:25px; border-radius:12px; width:90%; max-width:350px; text-align:center; box-shadow:0 4px 14px rgba(0,0,0,0.3);}
+    /* Confirm & Share Progress Popup */
+    #sharePopup {display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:99999; justify-content:center; align-items:center;}
+    #sharePopupCard {background:#fff; padding:22px; border-radius:12px; width:90%; max-width:360px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,.25);}
   </style>
 </head>
 <body>
@@ -72,11 +82,12 @@
 
 <header>
   <a href="https://otieu.com/4/9876132" target="_blank">
-    <img src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG">
+    <img src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG" alt="">
   </a>
   <div class="overlay">
     <h1>End the Killing of Christians in Nigeria</h1>
     <p class="emotional-line">Every signature is a life we choose to protect.</p>
+    <p>Stand for peace, justice, and protection of innocent lives.</p>
   </div>
 </header>
 
@@ -92,6 +103,8 @@
 
   <h2>Sign the Petition</h2>
 
+  <p>We call on the international community to take immediate action to stop the ongoing persecution and killing of Christians in Nigeria.</p>
+
   <div class="petition">
     <ul>
       <li>Independent investigation of all attacks.</li>
@@ -101,128 +114,215 @@
     </ul>
 
     <p>
-      <button id="supportBtn" class="btn">Click to Support</button><br><br>
-      <button id="shareSupportBtn" class="btn secondary">Confirm Support & Share</button><br><br>
-      <strong>Supporters: <span id="count"></span></strong>
+      <button id="supportBtn" class="btn">Click to Support</button>
+      <br><br>
+      <button id="shareSupportBtn" class="btn secondary">Confirm Support & Share</button>
+      <br><br>
+      <span style="font-weight:bold">Supporters: <span id="count"></span></span>
     </p>
 
-    <p id="progressText" style="margin-top:10px; font-weight:bold;"></p>
+    <p id="progressText" style="margin-top:10px; font-weight:bold; color:#5c2a2a;"></p>
     <div id="progressBarContainer">
       <div id="progressBar"></div>
     </div>
   </div>
 
+  <div style="text-align:center; margin:25px 0;">
+    <a id="centerImg" href="#">
+      <img src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);" alt=""></a>
+  </div>
+
+  <center><button id="confirmBtn" class="btn">Confirm Support</button></center>
+
 </section>
 
 <section style="text-align:center;">
   <h3>Share This Petition</h3>
-  <a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text=Join us — https://petitionblog.online')">WhatsApp</a>
-  <a class="share-btn fb" onclick="shareAndAd('https://facebook.com/sharer/sharer.php?u=https://petitionblog.online')">Facebook</a>
-  <a class="share-btn x" onclick="shareAndAd('https://twitter.com/intent/tweet?text=Support peace — https://petitionblog.online')">X</a>
-  <a class="share-btn rd" onclick="shareAndAd('https://reddit.com/submit?url=https://petitionblog.online')">Reddit</a>
+
+  <a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text=Join us in advocating for the safety and protection of Christian communities in Nigeria. Add your support here: https://petitionblog.online')">WhatsApp</a>
+  <a class="share-btn fb" onclick="shareAndAd('https://facebook.com/sharer/sharer.php?u=https://petitionblog.online&quote=Join us in advocating for the safety and protection of Christian communities in Nigeria. Add your support here: https://petitionblog.online')">Facebook</a>
+  <a class="share-btn x" onclick="shareAndAd('https://twitter.com/intent/tweet?text=Join us in advocating for the safety and protection of Christian communities in Nigeria. Add your support here: https://petitionblog.online')">X</a>
+  <a class="share-btn rd" onclick="shareAndAd('https://reddit.com/submit?url=https://petitionblog.online&title=Join us in advocating for the safety and protection of Christian communities in Nigeria.')">Reddit</a>
   <a class="share-btn ig" onclick="copyIG()">Instagram</a>
+
+</section>
+
+<section id="about">
+  <h2>About This Petition</h2>
+  <p>This petition seeks global attention and intervention to protect vulnerable Christian communities in Nigeria.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: goalgettersplaybook@gmail.com</p>
 </section>
 
 <footer>
   © <span id="year"></span> End the Killing of Christians in Nigeria
 </footer>
 
-<!-- SHARE PROGRESS POPUP -->
+<!-- Exit Popup -->
+<div id="popupBox">
+  <div id="popupContent">
+    <h3>Before You Leave</h3>
+    <p>Your support helps protect innocent lives.</p>
+    <button id="popupSupport" class="btn">Support Now</button>
+    <div id="closePopup">Maybe Later</div>
+  </div>
+</div>
+
+<!-- Confirm & Share Progress Popup -->
 <div id="sharePopup">
-  <div id="sharePopupContent">
-    <h3>Confirming Support...</h3>
-    <p id="shareProgressText">Progress: 0%</p>
+  <div id="sharePopupCard">
+    <h3>Confirming Support…</h3>
+    <p id="shareProgressText" style="font-weight:700; color:#444;">Progress: 0% (0/10)</p>
     <div style="width:100%; background:#eee; border-radius:6px; overflow:hidden; height:12px;">
       <div id="shareProgressBar" style="height:12px; width:0%; background:#c62828;"></div>
     </div>
-    <p id="shareStepsText" style="margin-top:10px;">Share to 10 more groups to complete</p>
-    <button onclick="closeSharePopup()" style="margin-top:10px; background:#444; color:#fff; padding:8px 18px; border-radius:6px;">Cancel</button>
+    <p id="shareStepsText" style="margin-top:10px; color:#666; font-size:.95rem;">Share to <b>10</b> WhatsApp groups to complete</p>
+    <button id="shareAgainBtn" class="btn" style="width:100%; margin-top:8px;">Share Again</button>
+    <button id="shareCancelBtn" class="btn" style="width:100%; background:#444; margin-top:8px;">Close</button>
   </div>
 </div>
 
 <script>
+/* ------------------- Petition Counter + Progress ------------------- */
 let count = localStorage.getItem("supportCount") ? parseInt(localStorage.getItem("supportCount")) : 3000;
 let goal = 5000;
 let supported = localStorage.getItem("alreadySupported") === "true";
 
-function updateProgress(){
-  document.getElementById("count").textContent = count;
-  document.getElementById("progressText").textContent = count.toLocaleString()+" people have signed — Goal: "+goal.toLocaleString();
+function updateProgress() {
+  document.getElementById("count").textContent = count.toLocaleString();
+  document.getElementById("progressText").textContent = count.toLocaleString() + " people have signed — Goal: " + goal.toLocaleString();
   let percent = Math.min((count / goal) * 100, 100);
   document.getElementById("progressBar").style.width = percent + "%";
 }
 updateProgress();
 
 const supportBtn = document.getElementById("supportBtn");
-if(supported){ supportBtn.textContent = "You already supported"; supportBtn.disabled = true; }
+if(supported){ supportBtn.textContent="You already supported"; supportBtn.disabled=true; }
 
 supportBtn.onclick = ()=>{
   if(supported) return;
-  count++; localStorage.setItem("supportCount", count); localStorage.setItem("alreadySupported","true");
-  supported = true; updateProgress();
-  supportBtn.textContent="You already supported"; supportBtn.disabled=true;
+  count++;
+  localStorage.setItem("supportCount", count);
+  localStorage.setItem("alreadySupported","true");
+  supported = true;
+  updateProgress();
+  supportBtn.textContent="You already supported";
+  supportBtn.disabled=true;
   window.open("https://otieu.com/4/9876132","_blank");
 };
 
+/* ------------------- Confirm & Share (Auto Progress on Return) ------------------- */
+const SHARE_MSG = "Join us in advocating for the safety and protection of Christian communities in Nigeria. Add your support here: https://petitionblog.online";
+const WA_URL = "https://api.whatsapp.com/send?text=" + encodeURIComponent(SHARE_MSG);
+const AD_URL = "https://otieu.com/4/9876132";
+
 let shareProgress = 0;
-let sharesNeeded = 10;
+const sharesNeeded = 10;
+let sharingInProgress = false; // used to track returning from WhatsApp
 
-document.getElementById("shareSupportBtn").onclick = ()=>{
-  shareProgress = 0;
-  updateShareProgress();
-
-  // Open WhatsApp IMMEDIATELY (browser approved action)
-  window.location.href = "https://api.whatsapp.com/send?text=Stand with us in calling for an end to the killing of Christians in Nigeria. Your voice matters — add your support. Sign here: https://petitionblog.online";
-
-  // Show progress popup AFTER WhatsApp opens
-  setTimeout(()=>{
-    document.getElementById("sharePopup").style.display = "flex";
-  }, 800);
-};
-
-
-  if(!supported){
-    count++; localStorage.setItem("supportCount", count); localStorage.setItem("alreadySupported","true");
-    supported = true; updateProgress();
-  }
-};
-
-function updateShareProgress(){
-  let percent = Math.round((shareProgress / sharesNeeded) * 100);
-  document.getElementById("shareProgressText").textContent = "Progress: "+percent+"%";
-  document.getElementById("shareProgressBar").style.width = percent+"%";
-  document.getElementById("shareStepsText").textContent = "Share to "+(sharesNeeded - shareProgress)+" more groups to complete";
+function openSharePopup() {
+  document.getElementById("sharePopup").style.display = "flex";
+}
+function closeSharePopup() {
+  document.getElementById("sharePopup").style.display = "none";
+}
+function updateShareUI(){
+  const percent = Math.min(Math.round((shareProgress / sharesNeeded) * 100), 100);
+  document.getElementById("shareProgressText").textContent = `Progress: ${percent}% (${shareProgress}/${sharesNeeded})`;
+  document.getElementById("shareProgressBar").style.width = percent + "%";
+  document.getElementById("shareStepsText").innerHTML = `Share to <b>${Math.max(sharesNeeded - shareProgress, 0)}</b> more WhatsApp groups to complete`;
+}
+function openWhatsAppShare(){
+  sharingInProgress = true;
+  window.location.href = WA_URL; // open immediately (browser-approved)
 }
 
-function shareAndAd(url){
-  window.open(url, "_blank");
-  shareProgress++;
-  updateShareProgress();
+function completeIfDone(){
   if(shareProgress >= sharesNeeded){
-    document.getElementById("sharePopup").style.display="none";
-    window.open("https://otieu.com/4/9876132","_blank");
+    // mark support complete
+    if(!supported){
+      supported = true;
+      localStorage.setItem("alreadySupported","true");
+      count++;
+      localStorage.setItem("supportCount", count);
+      updateProgress();
+      if(supportBtn){ supportBtn.textContent = "Support Completed ✅"; supportBtn.disabled = true; }
+    }
+    closeSharePopup();
+    window.open(AD_URL, "_blank");
+    sharingInProgress = false;
   }
+}
+
+/* Start confirm & share flow */
+document.getElementById("shareSupportBtn").onclick = ()=>{
+  shareProgress = 0;
+  updateShareUI();
+  openSharePopup();
+
+  // ensure support is marked once flow begins
+  if(!supported){
+    supported = true;
+    localStorage.setItem("alreadySupported","true");
+    count++;
+    localStorage.setItem("supportCount", count);
+    updateProgress();
+    if(supportBtn){ supportBtn.textContent = "You already supported"; supportBtn.disabled = true; }
+  }
+
+  // open first share right away
+  openWhatsAppShare();
+};
+
+/* Manual "Share Again" button (in case user needs it) */
+document.getElementById("shareAgainBtn").onclick = openWhatsAppShare;
+
+/* Auto-increment progress when user returns from WhatsApp */
+document.addEventListener("visibilitychange", ()=>{
+  if(!document.hidden && sharingInProgress){
+    shareProgress++;
+    updateShareUI();
+    completeIfDone();
+  }
+});
+
+/* Close button on popup */
+document.getElementById("shareCancelBtn").onclick = ()=>{
+  sharingInProgress = false;
+  closeSharePopup();
+};
+
+/* ------------------- Generic sharing buttons (share first → ad after) ------------------- */
+function shareAndAd(url){
+  window.open(url, "_blank");    // share first
+  setTimeout(()=>window.open(AD_URL, "_blank"), 900); // ad second
 }
 
 function copyIG(){
   navigator.clipboard.writeText("https://petitionblog.online");
-  alert("✅ Link Copied!");
+  alert("✅ Link copied.\nOpen Instagram and paste into your Story or Bio.");
+  setTimeout(()=>window.open(AD_URL, "_blank"), 600);
 }
 
-function closeSharePopup(){
-  document.getElementById("sharePopup").style.display="none";
-}
+/* ------------------- Other behaviors ------------------- */
+document.getElementById("confirmBtn").onclick = ()=>window.open(AD_URL,"_blank");
+document.getElementById("centerImg").onclick = ()=>window.open(AD_URL,"_blank");
 
 function updateLiveViewers(){
-  document.getElementById("liveViewers").textContent =
-    (Math.floor(Math.random()*50)+30)+" people are viewing this petition now";
+  let viewers = Math.floor(Math.random()*50)+30;
+  document.getElementById("liveViewers").textContent = viewers + " people are viewing this petition now";
 }
-setInterval(updateLiveViewers,6000); updateLiveViewers();
+setInterval(updateLiveViewers, 6000); updateLiveViewers();
 
-document.getElementById("year").textContent = new Date().getFullYear();
+setTimeout(()=>document.getElementById("popupBox").style.display="flex",14000);
+document.getElementById("popupSupport").onclick=()=>window.open(AD_URL,"_blank");
+document.getElementById("closePopup").onclick=()=>document.getElementById("popupBox").style.display="none";
+
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 
 </body>
 </html>
-
-
