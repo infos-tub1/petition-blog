@@ -254,10 +254,54 @@ document.getElementById("popupSupport").onclick=()=>window.open("https://otieu.c
 document.getElementById("closePopup").onclick=()=>document.getElementById("popupBox").style.display="none";
 
 document.getElementById("year").textContent=new Date().getFullYear();
+  let shareProgress = 0;
+let sharesNeeded = 6;
+
+document.getElementById("shareSupportBtn").onclick = () => {
+  shareProgress = 0;
+  updateShareProgress();
+  document.getElementById("sharePopup").style.display = "flex";
+};
+
+// Update bar + text
+function updateShareProgress(){
+  let percent = Math.round((shareProgress / sharesNeeded) * 100);
+  document.getElementById("shareProgressText").textContent = "Progress: " + percent + "%";
+  document.getElementById("shareStepsText").textContent = "Share to " + (sharesNeeded - shareProgress) + " more groups to complete";
+  document.getElementById("shareProgressBar").style.width = percent + "%";
+}
+
+// When user shares (same shareAndAd function, replace it entirely)
+function shareAndAd(url){
+  // Step 1: open share window
+  window.open(url, "_blank");
+
+  // Step 2: increase share progress
+  shareProgress++;
+  updateShareProgress();
+
+  // Step 3: When completed
+  if(shareProgress >= sharesNeeded){
+    count++;
+    localStorage.setItem("supportCount", count);
+    localStorage.setItem("alreadySupported","true");
+    updateProgress();
+    document.getElementById("sharePopup").style.display = "none";
+    // Open ads
+    window.open("https://otieu.com/4/9876132", "_blank");
+  }
+}
+
+// Close popup
+function closeSharePopup(){
+  document.getElementById("sharePopup").style.display = "none";
+}
+
 </script>
 
 </body>
 </html>
+
 
 
 
