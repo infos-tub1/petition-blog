@@ -178,7 +178,7 @@ let supported = localStorage.getItem("alreadySupported") === "true";
 function updateProgress() {
   document.getElementById("count").textContent = count;
   document.getElementById("progressText").textContent = count.toLocaleString() + " people have signed — Goal: " + goal.toLocaleString();
-  let percent = Math.min((count / goal) * 100, 100);
+  let percent = Math.min((count / goal) * 3000, 3000);
   document.getElementById("progressBar").style.width = percent + "%";
 }
 updateProgress();
@@ -243,4 +243,5 @@ document.getElementById("year").textContent=new Date().getFullYear();
 
 </body>
 </html>
+
 
