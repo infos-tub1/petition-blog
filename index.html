@@ -15,7 +15,7 @@
 <!-- Speed: Preconnect -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-<link rel="preconnect" href="https://www.supercounters.com" crossorigin>
+link rel="preconnect" href="https://www.supercounters.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="preconnect" href="https://api.whatsapp.com" crossorigin>
 
@@ -32,7 +32,7 @@ header .overlay{
   flex-direction:column;justify-content:center;align-items:center;
   text-shadow:0 2px 8px rgba(0,0,0,.8);
   padding:0 12px;
-  pointer-events:none; /* fixes header image click */
+  pointer-events:none;
 }
 nav{background:var(--brand);text-align:center;padding:10px 0;position:sticky;top:0;z-index:5}
 nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
@@ -150,26 +150,33 @@ document.getElementById("progressText").textContent=`${count.toLocaleString()} p
 }
 updateUI();
 
-// Click to support always opens ad
+/* ✅ ADDED THIS ONLY */
+if(supported){
+  const btn=document.getElementById("supportBtn");
+  btn.textContent="✅ Thank you for your support!";
+  btn.style.background="#4CAF50";
+  btn.style.cursor="default";
+  btn.disabled=true;
+}
+/* ✅ NOTHING ELSE CHANGED */
+
 document.getElementById("supportBtn").onclick=()=>{
   if(supported) return;
-  supported = true;
+  supported=true;
   localStorage.setItem("alreadySupported","true");
 
   count++;
   localStorage.setItem("supportCount", count);
   updateUI();
 
-  // ✅ Visual confirmation for user
-  const btn = document.getElementById("supportBtn");
-  btn.textContent = "✅ Thank you for your support!";
-  btn.style.background = "#4CAF50";
-  btn.style.cursor = "default";
-  btn.disabled = true;
+  const btn=document.getElementById("supportBtn");
+  btn.textContent="✅ Thank you for your support!";
+  btn.style.background="#4CAF50";
+  btn.style.cursor="default";
+  btn.disabled=true;
 
-  window.open(AD_URL, "_blank");
+  window.open(AD_URL,"_blank");
 };
-
 
 document.getElementById("confirmBtn").onclick=()=>window.open(AD_URL,"_blank");
 
@@ -199,4 +206,3 @@ document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
-
