@@ -10,33 +10,36 @@
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
 <link rel="preconnect" href="https://www.supercounters.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://api.whatsapp.com" crossorigin>
 
 <!-- Styles -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-  :root{
-    --brand:#c62828;
-    --brand-dark:#b71c1c;
-    --text:#111;
-    --muted:#444;
-  }
-  body{font-family:Arial;margin:0;background:#fff;color:#111;line-height:1.6;}
+  :root{--brand:#c62828;--brand-dark:#b71c1c;--text:#111;--muted:#444;}
+  *{box-sizing:border-box}
+  body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#111;line-height:1.6;}
   header{position:relative;text-align:center;color:#fff;}
   header a img{width:100%;height:300px;object-fit:cover;filter:brightness(60%);}
-  header .overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-shadow:0 2px 8px rgba(0,0,0,.8);}
-  nav{background:var(--brand);text-align:center;padding:10px 0;}
-  nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold;}
-  section{max-width:900px;margin:20px auto;padding:0 15px;}
-  .petition{background:#fff;border:2px solid #eee;padding:16px;border-radius:10px;}
-  .btn{background:var(--brand);color:#fff;border:none;padding:12px 24px;border-radius:8px;cursor:pointer;font-weight:bold;}
-  .btn.secondary{background:#444;}
-  .share-btn{color:#fff;padding:10px 15px;border-radius:6px;display:inline-block;margin:4px;font-weight:bold;text-decoration:none}
-  .fb{background:#1877F2;} .x{background:#000;} .wa{background:#25D366;} .rd{background:#FF4500;}
-  #progressBarContainer{width:100%;background:#f3e6e6;border-radius:6px;overflow:hidden;height:12px;margin-top:6px;}
-  #progressBar{height:12px;width:0;background:var(--brand);}
-  footer{background:#111;color:#fff;text-align:center;padding:18px;margin-top:40px;}
-  #sharePopup,#popupBox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);justify-content:center;align-items:center;z-index:9999;}
+  header .overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-shadow:0 2px 8px rgba(0,0,0,.8);padding:0 10px;}
+  header h1{margin:0 0 6px}
+  .subline{max-width:720px;margin:6px auto 0}
+  nav{background:var(--brand);text-align:center;padding:10px 0;position:sticky;top:0;z-index:5}
+  nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
+  nav a:hover{text-decoration:underline}
+  section{max-width:900px;margin:20px auto;padding:0 15px}
+  .petition{background:#fff;border:2px solid #eee;padding:16px;border-radius:10px}
+  .btn{background:var(--brand);color:#fff;border:none;padding:14px 22px;border-radius:10px;cursor:pointer;font-weight:bold;width:100%;max-width:520px}
+  .btn.secondary{background:#444}
+  .btn:active{transform:scale(0.99)}
+  .share-btn{color:#fff;padding:12px 16px;border-radius:8px;display:inline-block;margin:6px 4px;font-weight:bold;text-decoration:none}
+  .fb{background:#1877F2}.x{background:#000}.wa{background:#25D366}.rd{background:#FF4500}
+  #progressBarContainer{width:100%;background:#f3e6e6;border-radius:6px;overflow:hidden;height:12px;margin-top:8px}
+  #progressBar{height:12px;width:0;background:var(--brand)}
+  footer{background:#111;color:#fff;text-align:center;padding:18px;margin-top:40px}
+
+  /* Popups */
+  #sharePopup,#popupBox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);justify-content:center;align-items:center;z-index:9999}
+  #sharePopupCard,#popupContent{background:#fff;padding:22px;border-radius:12px;width:92%;max-width:380px;text-align:center}
 </style>
 </head>
 <body>
@@ -45,12 +48,13 @@
 <script async src="https://www.supercounters.com/fc.php?id=1724495&c=0"></script>
 
 <header>
+  <!-- Header image is a clickable ad -->
   <a href="https://otieu.com/4/9876132" target="_blank" rel="noopener">
-    <img loading="lazy" src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG" alt="">
+    <img loading="lazy" src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG" alt="Banner">
   </a>
   <div class="overlay">
     <h1>End the Killing of Christians in Nigeria</h1>
-    <p>Every signature is a life we choose to protect.</p>
+    <p class="subline"><strong>When America speaks, the world listens.</strong> President Trump has emphasized protecting Christians worldwide. Now we show that people of faith still defend life and freedom. <strong>Stand for those who cannot speak for themselves.</strong></p>
   </div>
 </header>
 
@@ -61,10 +65,8 @@
 </nav>
 
 <section id="home">
-  <div id="liveViewers"></div>
-
-  <h2>Sign the Petition</h2>
-  <p>We call on the international community to take immediate action...</p>
+  <h2 style="margin-top:0">Sign the Petition</h2>
+  <p>We call on the international community to take immediate action to stop the ongoing persecution and killing of Christians in Nigeria. Every voice matters. Your signature shows the world they are not forgotten.</p>
 
   <div class="petition">
     <ul>
@@ -74,44 +76,202 @@
       <li>Justice for victims and accountability for offenders.</li>
     </ul>
 
-    <p>
-      <button id="supportBtn" class="btn">Click to Support</button><br><br>
-      <button id="shareSupportBtn" class="btn secondary">Confirm Support & Share</button><br><br>
-      <strong>Supporters: <span id="count"></span></strong>
+    <p style="text-align:center">
+      <button id="supportBtn" class="btn">Click to Support</button>
+    </p>
+    <p style="text-align:center;margin-top:10px">
+      <button id="shareSupportBtn" class="btn secondary">Confirm Support & Share</button>
     </p>
 
-    <p id="progressText" style="font-weight:bold;color:#5c2a2a;"></p>
+    <p style="text-align:center;margin:10px 0 4px"><strong>Supporters: <span id="count"></span></strong></p>
     <div id="progressBarContainer"><div id="progressBar"></div></div>
+    <p id="progressText" style="text-align:center;color:#5c2a2a;font-weight:bold;margin:6px 0 0"></p>
   </div>
 
-  <div style="text-align:center;margin:25px 0;">
-    <a id="centerImg" href="https://otieu.com/4/9876132" target="_blank">
-      <img loading="lazy" src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%;border-radius:10px;">
+  <!-- Center image (clickable ad) -->
+  <div style="text-align:center;margin:22px 0">
+    <a href="https://otieu.com/4/9876132" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1)" alt="Petition related">
     </a>
   </div>
 
-  <center><button id="confirmBtn" class="btn">Confirm Support</button></center>
+  <p style="text-align:center">
+    <button id="confirmBtn" class="btn">Confirm Support</button>
+  </p>
 </section>
 
-<section style="text-align:center;">
+<section style="text-align:center">
   <h3>Share This Petition</h3>
-  <a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text=Support https://petitionblog.online')">WhatsApp</a>
+  <p style="max-width:680px;margin:0 auto 8px">No politics — this is humanity. <strong>Share to stand with believers facing persecution.</strong></p>
+
+  <!-- Generic shares (do NOT count toward progress; ad opens after) -->
+  <a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text='+encodeURIComponent(defaultShareMessage))">WhatsApp</a>
   <a class="share-btn fb" onclick="shareAndAd('https://facebook.com/sharer/sharer.php?u=https://petitionblog.online')">Facebook</a>
-  <a class="share-btn x" onclick="shareAndAd('https://twitter.com/intent/tweet?url=https://petitionblog.online')">X</a>
+  <a class="share-btn x"  onclick="shareAndAd('https://twitter.com/intent/tweet?text='+encodeURIComponent(defaultShareMessage))">X</a>
+  <a class="share-btn rd" onclick="shareAndAd('https://reddit.com/submit?url=https://petitionblog.online&title='+encodeURIComponent('Stand for those who cannot stand alone'))">Reddit</a>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>This petition seeks global attention and intervention to protect vulnerable Christian communities in Nigeria. We are asking for independent investigations into attacks, practical protection for at-risk areas, humanitarian relief for displaced families, and accountability for perpetrators.</p>
+  <p>Every signature increases pressure for action. Every share helps this message reach leaders, media, churches, and organizations that can help deliver safety and justice.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p><strong>Email:</strong> goalgettersplaybook@gmail.com</p>
+  <p>If you represent a church, NGO, journalist, or advocacy network and would like to help, please reach out. Partnerships are welcome.</p>
 </section>
 
 <footer>
   © <span id="year"></span> End the Killing of Christians in Nigeria
 </footer>
 
-<!-- Load scripts LAST (speed boost) -->
-<script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3ZNNQHD92"></script>
+<!-- Share Progress Popup (WhatsApp groups only) -->
+<div id="sharePopup">
+  <div id="sharePopupCard">
+    <h3>Confirming Support…</h3>
+    <p style="margin:6px 0 10px">When America speaks, the world listens. Your shares help protect Christians in Nigeria. <strong>Share to 10 WhatsApp groups</strong> to complete.</p>
+    <p id="shareProgressText" style="font-weight:bold;color:#444">Progress: 0% (0/10)</p>
+    <div style="width:100%;background:#eee;border-radius:6px;height:12px;overflow:hidden">
+      <div id="shareProgressBar" style="height:12px;width:0;background:#c62828"></div>
+    </div>
+    <p id="shareStepsText" style="margin-top:8px;color:#666">Share to <b>10</b> groups to complete</p>
+    <button id="shareAgainBtn" class="btn" style="width:100%;margin-top:8px">Share to WhatsApp</button>
+    <button id="shareCancelBtn" class="btn secondary" style="width:100%;margin-top:8px">Close</button>
+  </div>
+</div>
 
+<!-- Load tracking scripts last (faster paint) -->
+<!-- Meta Pixel -->
 <script>
-/* your original JavaScript remains unchanged — all support, share, ads, progress stay working */
-document.getElementById("year").textContent = new Date().getFullYear();
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','792854230422303');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=792854230422303&ev=PageView&noscript=1"/></noscript>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3ZNNQHD92"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-C3ZNNQHD92');
 </script>
 
+<script>
+/* ---------- Constants ---------- */
+const AD_URL = "https://otieu.com/4/9876132";
+const SITE_URL = "https://petitionblog.online";
+
+/* WhatsApp share message (Trump-style, ad-safe) */
+const defaultShareMessage =
+  "When America speaks, the world listens. President Trump has emphasized protecting Christians worldwide. " +
+  "Now we show that people of faith still defend life and freedom. Stand for those who cannot speak for themselves. " +
+  "Sign & Share: " + SITE_URL;
+
+/* ---------- Support Counter & Goal ---------- */
+let count = localStorage.getItem("supportCount") ? parseInt(localStorage.getItem("supportCount")) : 3000;
+let goal  = 10000;
+let supported = localStorage.getItem("alreadySupported") === "true";
+
+function updateGoalUI(){
+  document.getElementById("count").textContent = count.toLocaleString();
+  document.getElementById("progressBar").style.width = Math.min((count/goal)*100,100) + "%";
+  document.getElementById("progressText").textContent =
+    `${count.toLocaleString()} people have signed — Goal: ${goal.toLocaleString()}`;
+}
+updateGoalUI();
+
+/* Click to Support (increments once) */
+document.getElementById("supportBtn").onclick = () => {
+  if (supported) return;
+  supported = true;
+  localStorage.setItem("alreadySupported","true");
+  count++; localStorage.setItem("supportCount",count);
+  updateGoalUI();
+  window.open(AD_URL,"_blank");
+};
+
+/* Confirm Support button (just opens ad) */
+document.getElementById("confirmBtn").onclick = () => window.open(AD_URL,"_blank");
+
+/* ---------- Share Progress (WhatsApp groups only, need 10) ---------- */
+let shareProgress = 0;
+const sharesNeeded = 10;
+let sharingInProgress = false;
+
+/* Open / Close popup */
+function openSharePopup(){ document.getElementById("sharePopup").style.display="flex"; }
+function closeSharePopup(){ document.getElementById("sharePopup").style.display="none"; }
+
+/* Refresh progress UI */
+function refreshShareUI(){
+  const pct = Math.round((shareProgress/sharesNeeded)*100);
+  document.getElementById("shareProgressText").textContent = `Progress: ${pct}% (${shareProgress}/${sharesNeeded})`;
+  document.getElementById("shareProgressBar").style.width = pct + "%";
+  document.getElementById("shareStepsText").innerHTML = `Share to <b>${Math.max(sharesNeeded-shareProgress,0)}</b> groups to complete`;
+}
+
+/* Open WhatsApp share (counts toward progress) */
+function openWhatsAppShare(){
+  sharingInProgress = true;
+  // Track actual share attempt for FB optimization
+  if (typeof fbq === "function") fbq('trackCustom','SharePerformed');
+  // Open WhatsApp (mobile-first)
+  window.location.href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(defaultShareMessage);
+}
+
+/* Start flow */
+document.getElementById("shareSupportBtn").onclick = () => {
+  // mark as supported (once)
+  if (!supported){
+    supported = true;
+    localStorage.setItem("alreadySupported","true");
+    count++; localStorage.setItem("supportCount",count);
+    updateGoalUI();
+  }
+  shareProgress = 0;
+  refreshShareUI();
+  openSharePopup();
+  openWhatsAppShare();
+};
+
+/* Share Again button (WhatsApp only) */
+document.getElementById("shareAgainBtn").onclick = openWhatsAppShare;
+
+/* On return from WhatsApp, increment */
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && sharingInProgress){
+    shareProgress++;
+    refreshShareUI();
+    if (shareProgress >= sharesNeeded){
+      // completed
+      closeSharePopup();
+      window.open(AD_URL,"_blank");
+      sharingInProgress = false;
+    }
+  }
+});
+
+/* Cancel popup */
+document.getElementById("shareCancelBtn").onclick = () => {
+  sharingInProgress = false;
+  closeSharePopup();
+};
+
+/* ---------- Generic share buttons (do NOT count progress) ---------- */
+function shareAndAd(url){
+  if (typeof fbq === "function") fbq('trackCustom','SharePerformed');
+  window.open(url,"_blank");            // share first (unblocked)
+  setTimeout(()=>window.open(AD_URL,"_blank"), 900); // ad after
+}
+
+/* Footer year */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
