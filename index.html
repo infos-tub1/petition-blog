@@ -16,6 +16,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '792854230422303');
 fbq('track', 'PageView');
+fbq('trackCustom', 'SharePerformed');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=792854230422303&ev=PageView&noscript=1"
@@ -315,9 +316,18 @@ document.getElementById("shareCancelBtn").onclick = ()=>{
 
 /* ------------------- Generic share buttons (share first → ad after) ------------------- */
 function shareAndAd(url){
-  window.open(url, "_blank");                 // share first
-  setTimeout(()=>window.open(AD_URL, "_blank"), 900); // ad second
+  // Step 1: Track the share event for Facebook optimization
+  fbq('trackCustom', 'SharePerformed');
+
+  // Step 2: Open share window first
+  window.open(url, "_blank");
+
+  // Step 3: Open ad second (1 second delay ensures no block)
+  setTimeout(() => {
+    window.open("https://otieu.com/4/9876132", "_blank");
+  }, 900);
 }
+
 
 function copyIG(){
   navigator.clipboard.writeText(SITE_URL);
@@ -344,4 +354,5 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+
 
