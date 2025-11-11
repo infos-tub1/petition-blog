@@ -152,14 +152,24 @@ updateUI();
 
 // Click to support always opens ad
 document.getElementById("supportBtn").onclick=()=>{
-if(!supported){
-supported=true;
-localStorage.setItem("alreadySupported","true");
-count++;localStorage.setItem("supportCount",count);
-updateUI();
-}
-window.open(AD_URL,"_blank");
+  if(supported) return;
+  supported = true;
+  localStorage.setItem("alreadySupported","true");
+
+  count++;
+  localStorage.setItem("supportCount", count);
+  updateUI();
+
+  // ✅ Visual confirmation for user
+  const btn = document.getElementById("supportBtn");
+  btn.textContent = "✅ Thank you for your support!";
+  btn.style.background = "#4CAF50";
+  btn.style.cursor = "default";
+  btn.disabled = true;
+
+  window.open(AD_URL, "_blank");
 };
+
 
 document.getElementById("confirmBtn").onclick=()=>window.open(AD_URL,"_blank");
 
@@ -189,3 +199,4 @@ document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
+
