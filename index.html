@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>End the Killing of Christians in Nigeria</title>
 
+<!-- Social preview -->
+<meta property="og:title" content="End the Killing of Christians in Nigeria">
+<meta property="og:description" content="Stand with us to protect persecuted Christian families. Your voice matters.">
+<meta property="og:image" content="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG">
+<meta property="og:url" content="https://petitionblog.online">
+<meta name="twitter:card" content="summary_large_image">
+
 <!-- Speed: Preconnect -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
@@ -20,7 +27,13 @@
 body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#111;line-height:1.6;}
 header{position:relative;text-align:center;color:#fff;}
 header a img{width:100%;height:300px;object-fit:cover;filter:brightness(60%);}
-header .overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-shadow:0 2px 8px rgba(0,0,0,.8);padding:0 12px;}
+header .overlay{
+  position:absolute;inset:0;display:flex;
+  flex-direction:column;justify-content:center;align-items:center;
+  text-shadow:0 2px 8px rgba(0,0,0,.8);
+  padding:0 12px;
+  pointer-events:none; /* fixes header image click */
+}
 nav{background:var(--brand);text-align:center;padding:10px 0;position:sticky;top:0;z-index:5}
 nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
 nav a:hover{text-decoration:underline}
@@ -40,12 +53,11 @@ footer{background:#111;color:#fff;text-align:center;padding:18px;margin-top:40px
 </head>
 <body>
 
-<!-- Invisible Counter -->
 <script async src="https://www.supercounters.com/fc.php?id=1724495&c=0"></script>
 
 <header>
 <a href="https://otieu.com/4/9876132" target="_blank" rel="noopener">
-<img loading="lazy" src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG">
+<img loading="lazy" src="https://www.ncronline.org/files/2023-04/20230412T0730-NIGERIA-CHRISTIAN-MASSACRE-REPORT-1758367.JPG" alt="">
 </a>
 <div class="overlay">
 <h1>End the Killing of Christians in Nigeria</h1>
@@ -81,7 +93,7 @@ footer{background:#111;color:#fff;text-align:center;padding:18px;margin-top:40px
 
 <div style="text-align:center;margin:22px 0">
 <a href="https://otieu.com/4/9876132" target="_blank" rel="noopener">
-<img loading="lazy" src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1)">
+<img loading="lazy" src="https://media.globalchristianrelief.org/2018/06/Nigerianbandits.png" style="max-width:100%;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1)" alt="">
 </a>
 </div>
 
@@ -92,7 +104,7 @@ footer{background:#111;color:#fff;text-align:center;padding:18px;margin-top:40px
 <h3>Share This Petition</h3>
 <p>Sharing helps this message reach leaders and organizations who can help.</p>
 
-<a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text='+encodeURIComponent(defaultShareMessage))">WhatsApp</a>
+<a class="share-btn wa" onclick="shareAndAd('https://api.whatsapp.com/send?text=https://petitionblog.online')">WhatsApp</a>
 <a class="share-btn fb" onclick="shareAndAd('https://facebook.com/sharer/sharer.php?u=https://petitionblog.online')">Facebook</a>
 <a class="share-btn x" onclick="shareAndAd('https://twitter.com/intent/tweet?text='+encodeURIComponent(defaultShareMessage))">X</a>
 <a class="share-btn rd" onclick="shareAndAd('https://reddit.com/submit?url=https://petitionblog.online&title='+encodeURIComponent(defaultShareMessage))">Reddit</a>
@@ -110,7 +122,6 @@ footer{background:#111;color:#fff;text-align:center;padding:18px;margin-top:40px
 
 <footer>© <span id="year"></span> End the Killing of Christians in Nigeria</footer>
 
-<!-- SHARE PROGRESS POPUP -->
 <div id="sharePopup">
 <div id="sharePopupCard">
 <h3>Confirming Support…</h3>
@@ -139,16 +150,19 @@ document.getElementById("progressText").textContent=`${count.toLocaleString()} p
 }
 updateUI();
 
+// Click to support always opens ad
 document.getElementById("supportBtn").onclick=()=>{
-if(supported)return;
-supported=true;localStorage.setItem("alreadySupported","true");
-count++;localStorage.setItem("supportCount",count);updateUI();
+if(!supported){
+supported=true;
+localStorage.setItem("alreadySupported","true");
+count++;localStorage.setItem("supportCount",count);
+updateUI();
+}
 window.open(AD_URL,"_blank");
 };
 
 document.getElementById("confirmBtn").onclick=()=>window.open(AD_URL,"_blank");
 
-// SHARE PROGRESS
 let shareProgress=0,sharesNeeded=10,sharingInProgress=false;
 function openSharePopup(){document.getElementById("sharePopup").style.display="flex";}
 function closeSharePopup(){document.getElementById("sharePopup").style.display="none";}
@@ -161,7 +175,7 @@ document.getElementById("shareSupportBtn").onclick=()=>{
 if(!supported){supported=true;localStorage.setItem("alreadySupported","true");count++;localStorage.setItem("supportCount",count);updateUI();}
 shareProgress=0;refreshShareUI();openSharePopup();openWhatsAppShare();
 };
-function openWhatsAppShare(){sharingInProgress=true;window.location.href="https://api.whatsapp.com/send?text="+encodeURIComponent(defaultShareMessage);}
+function openWhatsAppShare(){sharingInProgress=true;window.location.href="https://api.whatsapp.com/send?text=https://petitionblog.online";}
 document.getElementById("shareAgainBtn").onclick=openWhatsAppShare;
 document.addEventListener("visibilitychange",()=>{
 if(!document.hidden&&sharingInProgress){
@@ -170,7 +184,6 @@ if(shareProgress>=sharesNeeded){closeSharePopup();window.open(AD_URL,"_blank");s
 }});
 document.getElementById("shareCancelBtn").onclick=()=>{sharingInProgress=false;closeSharePopup();};
 
-// SHARE First → Ad after
 function shareAndAd(url){window.open(url,"_blank");setTimeout(()=>window.open(AD_URL,"_blank"),900);}
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
